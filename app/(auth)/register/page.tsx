@@ -39,7 +39,7 @@ export default function RegisterPage() {
             <UserAuthForm type="register" />
           </Suspense>
           <p className="px-8 text-center text-sm text-muted-foreground">
-            By clicking continue, jyou agree to our{" "}
+            By clicking continue, you agree to our{" "}
             <Link
               href="/terms"
               className="hover:text-brand underline underline-offset-4"
