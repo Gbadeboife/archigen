@@ -7,7 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 
 export default async function HeroLanding() {
-  const { stargazers_count: stars } = await fetch(
+
+/*  const { stargazers_count: stars } = await fetch(
     "https://api.github.com/repos/mickasmt/next-saas-stripe-starter",
     {
       ...(env.GITHUB_OAUTH_TOKEN && {
@@ -23,6 +24,9 @@ export default async function HeroLanding() {
     .then((res) => res.json())
     .catch((e) => console.log(e));
 
+
+  */
+ 
   return (
     <section className="space-y-6 py-12 sm:py-20 lg:py-20">
       <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
