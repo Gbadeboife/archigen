@@ -1,6 +1,6 @@
 import Link from "next/link";
-
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+
 
 const logos = [
   {
@@ -237,6 +237,8 @@ const logos = [
     ),
   },
 ];
+
+
 
 export default function Powered() {
   return (
