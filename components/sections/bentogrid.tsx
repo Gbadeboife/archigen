@@ -1,12 +1,21 @@
 import Image from "next/image";
 
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+import { HeaderSection } from "@/components/shared/header-section";
 
-export default function BentoGrid() {
+
+export default function Styles() {
   return (
     <section className="py-32">
       <MaxWidthWrapper>
-        <div className="relative z-10 grid grid-cols-6 gap-3">
+
+        <HeaderSection
+            label="Tools"
+            title="Streamline Your Architecture Workflow with our AI Rendering Tools"
+            subtitle="Explore our powerful tools, with more on the way."
+        />
+
+        <div className="mt-12 relative z-10 grid grid-cols-6 gap-3">
           {/* First card */}
           <div className="relative col-span-full flex overflow-hidden rounded-2xl border bg-background p-8 lg:col-span-2">
             <div className="relative m-auto size-fit">

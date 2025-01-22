@@ -1,4 +1,4 @@
-import { ToolsLdg, InfoLdg, TestimonialType } from "types";
+import { StylesLdg, InfoLdg, TestimonialType } from "types";
 
 export const infos: InfoLdg[] = [
   {
@@ -52,46 +52,88 @@ export const infos: InfoLdg[] = [
   },
 ];
 
-export const tools: ToolsLdg[] = [
+export const styles: StylesLdg[] = [
   {
-    title: "Feature 1",
+    title: "Modern",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Prioritizes clean lines, open floor plans, and a strong connection to nature through expansive windows.",
     link: "/",
     icon: "nextjs",
   },
   {
-    title: "Feature 2",
+    title: "Contemporary",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Reflects current design trends, incorporating innovative materials and flexible spaces to create dynamic and evolving environments.",
     link: "/",
     icon: "google",
   },
   {
-    title: "Feature 3",
+    title: "Minimalist",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Achieves tranquility through extreme simplicity, clutter-free spaces, and a monochromatic palette, fostering a sense of serenity and calm",
     link: "/",
     icon: "gitHub",
   },
   {
-    title: "Feature 4",
+    title: "Simple",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Focuses on practicality and accessibility with unadorned forms, efficient use of space, and a clear emphasis on functionality.",
     link: "/",
     icon: "laptop",
   },
   {
-    title: "Feature 5",
+    title: "Luxury",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Showcases opulence through high-end materials, meticulous craftsmanship, and elaborate detailing, crafting sophisticated and lavish environments",
     link: "/",
     icon: "user",
   },
   {
-    title: "Feature 6",
+    title: "Futuristic",
     description:
-      "Amet praesentium deserunt ex commodi tempore fuga voluptatem. Sit, sapiente.",
+      "Explores cutting-edge technology, sleek, unconventional forms, and innovative materials to envision forward-thinking and visionary spaces.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "Traditional",
+    description:
+      "Draws inspiration from historical precedents, employing classic proportions and familiar details to evoke a sense of timelessness and familiarity.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "International Style",
+    description:
+      "Emphasizes functionalism and clean lines, rejecting ornamentation to create universally adaptable and efficient structures.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "Biophilic",
+    description:
+      "Integrates natural elements like wood, stone, and abundant greenery to cultivate healthy, restorative, and harmonious environments.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "Scandinavian",
+    description:
+      "Creates warm, inviting, and comfortable spaces by prioritizing simplicity, functionality, natural material, and ample natural light.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "Mediterranean",
+    description:
+      "Captures the essence of sun-drenched coastal living with warm color palettes, natural materials, and seamless integration of spaces.",
+    link: "/",
+    icon: "copy",
+  },
+  {
+    title: "Industrial",
+    description:
+      "Celebrates raw materials like brick, concrete, and exposed metalwork, revealing structural elements and embracing open layouts.",
     link: "/",
     icon: "copy",
   },
