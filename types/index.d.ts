@@ -87,7 +87,7 @@ export type InfoLdg = {
   list: InfoList[];
 };
 
-export type FeatureLdg = {
+export type ToolsLdg = {
   title: string;
   description: string;
   link: string;

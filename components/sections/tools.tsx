@@ -1,30 +1,29 @@
 import Link from "next/link";
 
-import { features } from "@/config/landing";
+import { tools } from "@/config/landing";
 import { Button } from "@/components/ui/button";
 import { HeaderSection } from "@/components/shared/header-section";
 import { Icons } from "@/components/shared/icons";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
-export default function FeaturesOld() {
+export default function Tools() {
   return (
     <section>
       <div className="pb-6 pt-28">
         <MaxWidthWrapper>
           <HeaderSection
-            label="Features"
-            title="Discover all features."
-            subtitle="Harum quae dolore inventore repudiandae? orrupti aut temporibus
-          ariatur."
+            label="Tools"
+            title="Streamline Your Architecture Workflow with our AI Rendering Tools"
+            subtitle="Explore 10+ powerful tools, with more on the way."
           />
 
           <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => {
-              const Icon = Icons[feature.icon || "nextjs"];
+            {tools.map((tool) => {
+              const Icon = Icons[tool.icon || "nextjs"];
               return (
                 <div
                   className="group relative overflow-hidden rounded-2xl border bg-background p-5 md:p-8"
-                  key={feature.title}
+                  key={tool.title}
                 >
                   <div
                     aria-hidden="true"
@@ -36,7 +35,7 @@ export default function FeaturesOld() {
                     </div>
 
                     <p className="mt-6 pb-6 text-muted-foreground">
-                      {feature.description}
+                      {tool.description}
                     </p>
 
                     <div className="-mb-5 flex gap-3 border-t border-muted py-4 md:-mb-7">

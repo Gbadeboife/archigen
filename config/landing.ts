@@ -1,4 +1,4 @@
-import { FeatureLdg, InfoLdg, TestimonialType } from "types";
+import { ToolsLdg, InfoLdg, TestimonialType } from "types";
 
 export const infos: InfoLdg[] = [
   {
@@ -52,7 +52,7 @@ export const infos: InfoLdg[] = [
   },
 ];
 
-export const features: FeatureLdg[] = [
+export const tools: ToolsLdg[] = [
   {
     title: "Feature 1",
     description:
