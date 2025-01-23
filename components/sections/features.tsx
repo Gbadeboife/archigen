@@ -1,8 +1,13 @@
 import Image from "next/image"
+import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
+
+
 
 export default function Features() {
   return (
     <section className="py-16">
+      <MaxWidthWrapper>
+      
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Exterior Rendering Feature */}
@@ -52,6 +57,8 @@ export default function Features() {
           </div>
         </div>
       </div>
+      </MaxWidthWrapper>
+      
     </section>
   )
 }
