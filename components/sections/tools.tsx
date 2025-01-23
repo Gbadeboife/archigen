@@ -17,51 +17,51 @@ export default function Tools() {
   const tools: toolsLdg = [
     {
       name: "Exterior AI",
-      description: "Create detailed 3D models of your architectural designs with ease.",
+      description: "Generate stunning exterior visualizations of buildings from Sketchup, Blender, 3Ds Max and revit models.",
       image: "/placeholder.svg?height=250&width=250",
       link: "/tools/3d-modeling",
     },
     {
       name: "Interior AI",
-      description: "Access a vast library of high-quality textures for realistic renderings.",
+      description: "Create beautiful and realistic interior designs from Sketchup, Blender, 3Ds Max and revit models with AI-powered rendering.",
       image: "/placeholder.svg?height=250&width=250",
       link: "/tools/texture-library",
     },
     {
       name: "Sketch AI",
-      description: "Perfect your scene's ambiance with advanced lighting controls.",
+      description: "Transform hand-drawn or digital sketches into stunning architectural renders. Go from quick sketch to photorealistic render in seconds.",
       image: "/placeholder.svg?height=250&width=250",
       link: "/tools/lighting-studio",
     },
     {
-      name: "Upscale AI",
-      description: "Generate stunning environments to showcase your designs.",
+      name: "Text-2-Scene AI",
+      description: "Turn text descriptions into detailed 3D scenes and visualizations. Bring your vision to life with AI-powered image generation.",
       image: "/placeholder.svg?height=250&width=250",
-      link: "/tools/environment-creator",
+      link: "",
     },
     {
-      name: "Text-2-Scene AI",
-      description: "Craft and customize materials for photorealistic results.",
+      name: "Upscale AI",
+      description: "Enhance the resolution and quality of your Lumion, Enscape, vray, SketchUp or Revit renders up to 4k.",
       image: "/placeholder.svg?height=250&width=250",
-      link: "/tools/material-editor",
+      link: "",
     },
     {
       name: "Furnish AI",
-      description: "Choose the perfect angles to highlight your architectural vision.",
+      description: "Automatically furnish and style your interior spaces with AI-powered furniture placement. Choose from a wide range of designs.",
       image: "/placeholder.svg?height=250&width=250",
-      link: "/tools/camera-setup",
+      link: "",
     },
     {
-      name: "Render Farm",
-      description: "Harness the power of cloud computing for lightning-fast renders.",
+      name: "Masterplan AI",
+      description: "Render site plans and urban layouts with intelligent AI assistance.",
       image: "/placeholder.svg?height=250&width=250",
-      link: "/tools/render-farm",
+      link: "",
     },
     {
-      name: "Post-Processing Suite",
-      description: "Fine-tune your renders with professional-grade editing tools.",
+      name: "Modify AI",
+      description: "Easily edit and refine existing renders, making quick changes and adjustments with powerful AI tools.",
       image: "/placeholder.svg?height=250&width=250",
-      link: "/tools/post-processing",
+      link: "",
     },
   ]
 
@@ -78,8 +78,8 @@ export default function Tools() {
         <div className="container mx-auto px-4 mt-6">
           <div className="grid md:grid-cols-2 gap-12">
             {tools.map((tool, index) => (
-              <div key={index} className="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-lg">
-                <div className="w-full aspect-square relative mb-6">
+              <div key={index} className="flex flex-col items-center text-center">
+                <div className="w-full aspect-square relative mb-6 border-2 rounded-md">
                   <Image
                     src={tool.image || "/placeholder.svg"}
                     alt={`${tool.name} icon`}
@@ -87,13 +87,13 @@ export default function Tools() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{tool.name}</h3>
-                <p className="text-lg text-gray-600 mb-6">{tool.description}</p>
+                <h3 className="text-2xl font-semibold mb-3">{tool.name}</h3>
+                <p className="text-md mb-3 text-muted-foreground">{tool.description}</p>
                 <Link
                   href={tool.link}
-                  className="text-lg font-medium bg-blue-600 text-white py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300"
+                  className="text-lg font-medium bg-blue-600 text-white py-2 px-6 rounded-full link-gradient_indigo-purple hover:bg-blue-700 transition-colors duration-300"
                 >
-                  Learn more
+                  {tool.link === "" ? "Coming Soon" : `Try ${tool.name}`}                  
                 </Link>
               </div>
             ))}
