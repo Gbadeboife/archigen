@@ -31,7 +31,7 @@ export default function Benefits() {
       },
       {
         title: "Effortless",
-        description: "Our AI analyzes your images to create the perfect prompt for stunning results.",
+        description: "Our AI analyzes your images to create the perfect prompt to achieve stunning results.",
         icon: "settings",
       },
       {

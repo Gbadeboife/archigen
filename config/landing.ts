@@ -63,77 +63,77 @@ export const styles: StylesLdg[] = [
   {
     title: "Contemporary",
     description:
-      "Reflects current design trends, incorporating innovative materials and flexible spaces to create dynamic and evolving environments.",
+      "Reflects current design trends, incorporating innovative materials to create dynamic and evolving environments.",
     link: "/",
     icon: "google",
   },
   {
     title: "Minimalist",
     description:
-      "Achieves tranquility through extreme simplicity, clutter-free spaces, and a monochromatic palette, fostering a sense of serenity and calm",
+      "Achieves tranquility through extreme simplicity, clutter-free spaces, and a monochromatic palette.",
     link: "/",
     icon: "gitHub",
   },
   {
     title: "Simple",
     description:
-      "Focuses on practicality and accessibility with unadorned forms, efficient use of space, and a clear emphasis on functionality.",
+      "Focuses on practicality and accessibility with efficient use of space and a clear emphasis on functionality.",
     link: "/",
     icon: "laptop",
   },
   {
     title: "Luxury",
     description:
-      "Showcases opulence through high-end materials, meticulous craftsmanship, and elaborate detailing, crafting sophisticated and lavish environments",
+      "Showcases opulence through high-end materials and elaborate detailing, crafting sophisticated environments",
     link: "/",
     icon: "user",
   },
   {
     title: "Futuristic",
     description:
-      "Explores cutting-edge technology, sleek, unconventional forms, and innovative materials to envision forward-thinking and visionary spaces.",
+      "Explores cutting-edge technology, sleek, and unconventional forms, to envision forward-thinking and visionary spaces.",
     link: "/",
     icon: "copy",
   },
   {
     title: "Traditional",
     description:
-      "Draws inspiration from historical precedents, employing classic proportions and familiar details to evoke a sense of timelessness and familiarity.",
+      "Draws inspiration from historical precedents, employing classic proportions to evoke a sense of timelessness.",
     link: "/",
     icon: "copy",
   },
   {
     title: "International Style",
     description:
-      "Emphasizes functionalism and clean lines, rejecting ornamentation to create universally adaptable and efficient structures.",
+      "Emphasizes functionalism and clean lines, rejecting ornamentation to create universally adaptable structures.",
     link: "/",
     icon: "copy",
   },
   {
     title: "Biophilic",
     description:
-      "Integrates natural elements like wood, stone, and abundant greenery to cultivate healthy, restorative, and harmonious environments.",
+      "Integrates natural elements and abundant greenery to cultivate healthy, restorative, and harmonious environments.",
     link: "/",
     icon: "copy",
   },
   {
     title: "Scandinavian",
     description:
-      "Creates warm, inviting, and comfortable spaces by prioritizing simplicity, functionality, natural material, and ample natural light.",
+      "Creates warm, inviting, and comfortable spaces by prioritizing simplicity, functionality, and natural materials.",
     link: "/",
     icon: "copy",
   },
   {
     title: "Mediterranean",
     description:
-      "Captures the essence of sun-drenched coastal living with warm color palettes, natural materials, and seamless integration of spaces.",
+      "Captures the essence of sun-drenched coastal living with warm color palettes and natural materials.",
     link: "/",
     icon: "copy",
   },
   {
     title: "Industrial",
     description:
-      "Celebrates raw materials like brick, concrete, and exposed metalwork, revealing structural elements and embracing open layouts.",
+      "Celebrates raw material and exposed metalwork, revealing structural elements and embracing open layouts.",
     link: "/",
     icon: "copy",
   },

@@ -32,7 +32,11 @@ export default function Styles() {
                     <div className="relative flex size-12 rounded-2xl border border-border shadow-sm *:relative *:m-auto *:size-6">
                     </div>
 
-                    <p className="mt-6 pb-6 text-muted-foreground">
+                    <h4 className="mt-6 font-semibold">
+                      {style.title}
+                    </h4>
+
+                    <p className="mt-3 text-muted-foreground">
                       {style.description}
                     </p>
 

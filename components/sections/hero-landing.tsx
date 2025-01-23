@@ -54,7 +54,7 @@ export default async function HeroLanding() {
           className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          AI-driven architectural rendering made easy. Transform ideas into reality with a click.
+          Achieve photorealistic renders in seconds. Transform ideas into reality with a click.
         </p>
 
         <div
