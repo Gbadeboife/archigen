@@ -27,18 +27,18 @@ export default function Benefits() {
       {
         title: "Speed",
         description: "Stop waiting for renders. Experience lightning-fast results with our AI-powered platform.",
-        icon: "laptop",
+        icon: "rocket",
       },
       {
-        title: "Effortless",
+        title: "Easy to Use",
         description: "Our AI analyzes your images to create the perfect prompt to achieve stunning results.",
-        icon: "settings",
+        icon: "check",
       },
       {
         title: "Quality",
         description:
           "Create stunning, photorealistic renderings that bring your vision to life and wow clients.",
-        icon: "search",
+        icon: "stars",
       },
     ],
   }
@@ -74,12 +74,11 @@ export default function Benefits() {
           className= "overflow-hidden rounded-xl border lg:-m-4">
           <div className="aspect-video">
             <Image
-              className="size-full object-cover object-center"
-              src={data.image}
-              alt={data.title}
-              width={1000}
-              height={500}
-              priority={true}
+              src="/_static/images/benefits.png"
+              alt="Exterior Rendering Example"
+              width={400}
+              height={300}
+              className="rounded-lg shadow-lg w-full"
             />
           </div>
         </div>

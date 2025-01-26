@@ -18,6 +18,7 @@ import {
   LineChart,
   Loader2,
   LucideIcon,
+  RocketIcon,
   LucideProps,
   MessagesSquare,
   Moon,
@@ -31,6 +32,7 @@ import {
   Trash,
   User,
   X,
+  Stars
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -134,4 +136,6 @@ export const Icons = {
   ),
   user: User,
   warning: AlertTriangle,
+  rocket: RocketIcon,
+  stars: Stars
 };
