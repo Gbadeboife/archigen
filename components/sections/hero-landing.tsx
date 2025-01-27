@@ -15,7 +15,7 @@ export default async function HeroLanding() {
           href=""
           className={cn(
             buttonVariants({ variant: "outline", size: "sm", rounded: "full" }),
-            "px-4",
+            "px-3 text-xs md:px-4 md:text-sm lg:text-sm",
           )}
           target="_blank"
         >
@@ -32,10 +32,10 @@ export default async function HeroLanding() {
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-muted-foreground sm:text-xl sm:leading-8"
+          className="max-w-2xl text-balance leading-normal text-muted-foreground text-sm sm:leading-8 sm:text-base md:text-base lg:text-lg"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Achieve photorealistic renders in seconds. Transform ideas into reality with a click.
+          Achieve photorealistic renders in seconds.<br/>Transform ideas into reality with a click.
         </p>
 
         <div
@@ -47,7 +47,7 @@ export default async function HeroLanding() {
             prefetch={true}
             className={cn(
               buttonVariants({ size: "lg", rounded: "full" }),
-              "gap-2",
+              "gap-2 px-4 text-sm md:px-6 md:text-base lg:text-base",
             )}
           >
             <span>Get Started for Free</span>

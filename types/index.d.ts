@@ -90,8 +90,7 @@ export type InfoLdg = {
 export type StylesLdg = {
   title: string;
   description: string;
-  link: string;
-  icon: keyof typeof Icons;
+  image: string;
 };
 
 export type TestimonialType = {

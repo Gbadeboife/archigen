@@ -49,7 +49,7 @@ export default function PreviewLanding() {
 
           <div 
             ref={containerRef}
-            className={`relative w-full h-96 overflow-hidden`}
+            className={`relative w-full h-full overflow-hidden`}
           >
             {/* Left Image */}
             <div 
@@ -59,11 +59,10 @@ export default function PreviewLanding() {
               }}
             >
               <img 
-                src="../../public/_static/images/benefits.png" 
+                src="/_static/images/preview-before.png" 
                 alt="Left placeholder" 
                 className="w-full h-full object-cover" 
               />
-              <span className="absolute text-blue-800 text-2xl">Before</span>
             </div>
 
             {/* Right Image */}
@@ -74,11 +73,10 @@ export default function PreviewLanding() {
               }}
             >
               <img 
-                src="../../public/_static/images/a-after.png" 
+                src="/_static/images/preview-after.png" 
                 alt="Right placeholder" 
                 className="w-full h-full object-cover" 
               />
-              <span className="absolute text-green-800 text-2xl">After</span>
             </div>
 
             {/* Slider */}

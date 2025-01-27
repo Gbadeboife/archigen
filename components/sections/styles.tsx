@@ -1,7 +1,8 @@
 import Link from "next/link";
 
+import Image from "next/image"
+
 import { styles } from "@/config/landing";
-import { Button } from "@/components/ui/button";
 import { HeaderSection } from "@/components/shared/header-section";
 import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
@@ -29,10 +30,17 @@ export default function Styles() {
                     className="absolute inset-0 aspect-video -translate-y-1/2 rounded-full border bg-gradient-to-b from-purple-500/80 to-white opacity-25 blur-2xl duration-300 group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
                   />
                   <div className="relative">
-                    <div className="relative flex size-12 rounded-2xl border border-border shadow-sm *:relative *:m-auto *:size-6">
+                    <div className="relative flex rounded-2xl border border-border shadow-sm *:relative *:m-auto ">
+                      <Image
+                        src={`/_static/images/${style.image}`}
+                        alt={style.title}
+                        width={400}
+                        height={300}
+                        className="rounded-sm w-full"
+                      />
                     </div>
 
-                    <h4 className="mt-6 font-semibold">
+                    <h4 className="mt-6 font-semibold text-lg">
                       {style.title}
                     </h4>
 

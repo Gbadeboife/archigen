@@ -21,8 +21,8 @@ export default function Features() {
             />
             */}
 
-            <h3 className="text-2xl font-semibold mb-2">Exterior Renders</h3>
-            <p className="mb-6 text-muted-foreground">
+            <h3 className="text-xl md:text-2xl font-semibold mb-2">Exterior Renders</h3>
+            <p className="mb-6 text-sm md:text-base text-muted-foreground">
               Transform your architectural designs into stunning exterior visualizations with our AI-powered rendering
               engine.
             </p>
@@ -45,8 +45,8 @@ export default function Features() {
               className="mb-4"
             />*/}
 
-            <h3 className="text-2xl font-semibold mb-2">Interior Renders</h3>
-            <p className="mb-6 text-muted-foreground">
+            <h3 className="text-xl md:text-2xl font-semibold mb-2">Interior Renders</h3>
+            <p className="mb-6 text-sm md:text-base text-muted-foreground">
               Bring your interior spaces to life with photorealistic AI renders that showcase every detail of your
               design.
             </p>

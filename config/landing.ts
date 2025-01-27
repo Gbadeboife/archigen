@@ -57,85 +57,73 @@ export const styles: StylesLdg[] = [
     title: "Modern",
     description:
       "Prioritizes clean lines, open floor plans, and a strong connection to nature through expansive windows.",
-    link: "/",
-    icon: "nextjs",
+    image: "st-modern.jpg",
   },
   {
     title: "Contemporary",
     description:
       "Reflects current design trends, incorporating innovative materials to create dynamic and evolving environments.",
-    link: "/",
-    icon: "google",
+    image: "st-contemporary.jpg",
   },
   {
     title: "Minimalist",
     description:
       "Achieves tranquility through extreme simplicity, clutter-free spaces, and a monochromatic palette.",
-    link: "/",
-    icon: "gitHub",
+    image: "st-minimalist.jpg",
   },
   {
     title: "Simple",
     description:
       "Focuses on practicality and accessibility with efficient use of space and a clear emphasis on functionality.",
-    link: "/",
-    icon: "laptop",
+    image: "st-simple.jpg",
   },
   {
     title: "Luxury",
     description:
       "Showcases opulence through high-end materials and elaborate detailing, crafting sophisticated environments",
-    link: "/",
-    icon: "user",
+    image: "st-luxury.jpg",
   },
   {
     title: "Futuristic",
     description:
       "Explores cutting-edge technology, sleek, and unconventional forms, to envision forward-thinking and visionary spaces.",
-    link: "/",
-    icon: "copy",
+    image: "st-futuristic.jpg",
   },
   {
     title: "Traditional",
     description:
       "Draws inspiration from historical precedents, employing classic proportions to evoke a sense of timelessness.",
-    link: "/",
-    icon: "copy",
+    image: "st-traditional.jpg",
   },
   {
     title: "International Style",
     description:
       "Emphasizes functionalism and clean lines, rejecting ornamentation to create universally adaptable structures.",
-    link: "/",
-    icon: "copy",
+    image: "st-international.jpg",
   },
   {
     title: "Biophilic",
     description:
       "Integrates natural elements and abundant greenery to cultivate healthy, restorative, and harmonious environments.",
-    link: "/",
-    icon: "copy",
+    image: "st-biophilic.jpg",
   },
   {
     title: "Scandinavian",
     description:
       "Creates warm, inviting, and comfortable spaces by prioritizing simplicity, functionality, and natural materials.",
-    link: "/",
-    icon: "copy",
+    image: "st-scandinavian.jpg",
   },
   {
     title: "Mediterranean",
     description:
       "Captures the essence of sun-drenched coastal living with warm color palettes and natural materials.",
-    link: "/",
-    icon: "copy",
+    image: "st-mediterranean.jpg",
   },
   {
     title: "Industrial",
     description:
       "Celebrates raw material and exposed metalwork, revealing structural elements and embracing open layouts.",
-    link: "/",
-    icon: "copy",
+    image: "st-industrial.jpg",
   },
 ];
 
