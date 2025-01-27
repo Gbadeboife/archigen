@@ -11,7 +11,7 @@ export default function Features() {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12">
           {/* Exterior Rendering Feature */}
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center mb-4">
             {/*<Image
               src="/../../public/_static/images/benefits.png"
               alt="Exterior Rendering Icon"

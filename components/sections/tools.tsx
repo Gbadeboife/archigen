@@ -87,11 +87,11 @@ export default function Tools() {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3">{tool.name}</h3>
-                <p className="text-md mb-3 text-muted-foreground">{tool.description}</p>
+                <h3 className="text-xl mb-1 font-semibold md:mb-3">{tool.name}</h3>
+                <p className="text-sm md:text-base font-sm mb-3 text-muted-foreground">{tool.description}</p>
                 <Link
                   href={tool.link}
-                  className="text-lg font-medium bg-blue-600 text-white py-2 px-6 rounded-full link-gradient_indigo-purple hover:bg-blue-700 transition-colors duration-300"
+                  className="text-sm sm:text-base font-medium bg-blue-600 text-white py-2 px-6 rounded-full link-gradient_indigo-purple hover:bg-blue-700 transition-colors duration-300"
                 >
                   {tool.link === "" ? "Coming Soon" : `Try ${tool.name}`}                  
                 </Link>
