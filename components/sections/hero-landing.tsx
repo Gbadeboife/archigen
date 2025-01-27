@@ -19,7 +19,7 @@ export default async function HeroLanding() {
           )}
           target="_blank"
         >
-                   Join our Discord Group for the Latest Updates
+                   Join us on Discord for Latest Updates
 
         </Link>
 

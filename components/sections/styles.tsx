@@ -44,7 +44,7 @@ export default function Styles() {
                       {style.title}
                     </h4>
 
-                    <p className="mt-3 text-muted-foreground">
+                    <p className="mt-3 text-sm md:text-base text-muted-foreground">
                       {style.description}
                     </p>
 
