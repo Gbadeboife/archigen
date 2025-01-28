@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useContext } from "react";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
@@ -49,7 +49,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
       >
         <div className="flex gap-6 md:gap-10">
           <Link href="/" className="flex items-center space-x-1.5">
-            <Icons.logo />
+
             <span className="font-urban text-xl font-bold">
               {siteConfig.name}
             </span>
