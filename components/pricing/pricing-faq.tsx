@@ -43,7 +43,7 @@ const pricingFaqData = [
 export function PricingFaq() {
   return (
     <section className="container max-w-4xl py-2">
-      <HeaderSection
+      {/*<HeaderSection
         label="FAQ"
         title="Frequently Asked Questions"
         subtitle="Explore our comprehensive FAQ to find quick answers to common
@@ -60,7 +60,7 @@ export function PricingFaq() {
             </AccordionContent>
           </AccordionItem>
         ))}
-      </Accordion>
+      </Accordion>*/}
     </section>
   );
 }

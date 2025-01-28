@@ -3,18 +3,20 @@ import { env } from "@/env.mjs";
 
 export const pricingData: SubscriptionPlan[] = [
   {
-    title: "Starter",
+    title: "Free",
     description: "For Beginners",
     benefits: [
-      "Up to 100 monthly posts",
-      "Basic analytics and reporting",
-      "Access to standard templates",
+      "Up to 5 renders",
+      "Custom prompts",
+      "No watermark",
+      "Commercial use",
+      "Basic quality renders",
     ],
     limitations: [
       "No priority access to new features.",
-      "Limited customer support",
+      /*"Limited customer support",
       "No custom branding",
-      "Limited access to business resources.",
+      "Limited access to business resources.",*/
     ],
     prices: {
       monthly: 0,
@@ -29,26 +31,27 @@ export const pricingData: SubscriptionPlan[] = [
     title: "Pro",
     description: "Unlock Advanced Features",
     benefits: [
-      "Up to 500 monthly posts",
-      "Advanced analytics and reporting",
-      "Access to business templates",
-      "Priority customer support",
-      "Exclusive webinars and training.",
+      "Unlimited renders",
+      "Custom prompts",
+      "Commercial use",
+      "No watermark",
+      "High resolution renders",
+      "Early access to new features",
     ],
     limitations: [
-      "No custom branding",
-      "Limited access to business resources.",
+      /*"No custom branding",
+      "Limited access to business resources.",*/
     ],
     prices: {
-      monthly: 15,
-      yearly: 144,
+      monthly: 20,
+      yearly: 192,
     },
     stripeIds: {
       monthly: env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PLAN_ID,
       yearly: env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID,
     },
   },
-  {
+  /*{
     title: "Business",
     description: "For Power Users",
     benefits: [
@@ -67,7 +70,7 @@ export const pricingData: SubscriptionPlan[] = [
       monthly: env.NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID,
       yearly: env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
     },
-  },
+  },*/
 ];
 
 export const plansColumns = [

@@ -23,8 +23,8 @@ interface PricingCardsProps {
 export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
   const isYearlyDefault =
     !subscriptionPlan?.stripeCustomerId || subscriptionPlan.interval === "year"
-      ? true
-      : false;
+      ? false
+      : true;
   const [isYearly, setIsYearly] = useState<boolean>(!!isYearlyDefault);
   const { setShowSignInModal } = useContext(ModalContext);
 
@@ -70,8 +70,8 @@ export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
           {offer.prices.monthly > 0 ? (
             <div className="text-left text-sm text-muted-foreground">
               {isYearly
-                ? `$${offer.prices.yearly} will be charged when annual`
-                : "when charged monthly"}
+                ? `$${offer.prices.yearly} will be charged annually`
+                : "will be charged monthly"}
             </div>
           ) : null}
         </div>
@@ -167,26 +167,12 @@ export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
           </ToggleGroup>
         </div>
 
-        <div className="grid gap-5 bg-inherit py-5 lg:grid-cols-3">
+        <div className="grid gap-5 bg-inherit py-5 lg:grid-cols-2">
           {pricingData.map((offer) => (
             <PricingCard offer={offer} key={offer.title} />
           ))}
         </div>
 
-        <p className="mt-3 text-balance text-center text-base text-muted-foreground">
-          Email{" "}
-          <a
-            className="font-medium text-primary hover:underline"
-            href="mailto:support@saas-starter.com"
-          >
-            support@saas-starter.com
-          </a>{" "}
-          for to contact our support team.
-          <br />
-          <strong>
-            You can test the subscriptions and won&apos;t be charged.
-          </strong>
-        </p>
       </section>
     </MaxWidthWrapper>
   );

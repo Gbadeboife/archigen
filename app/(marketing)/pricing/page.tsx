@@ -8,7 +8,7 @@ import { PricingCards } from "@/components/pricing/pricing-cards";
 import { PricingFaq } from "@/components/pricing/pricing-faq";
 
 export const metadata = constructMetadata({
-  title: "Pricing – SaaS Starter",
+  title: "Pricing – ArchiGen",
   description: "Explore our subscription plans.",
 });
 
