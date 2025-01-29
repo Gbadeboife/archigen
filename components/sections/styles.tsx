@@ -18,16 +18,16 @@ export default function Styles() {
           subtitle="Explore our curated collection of preset architectural styles for instant design transformations."
           />
 
-          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-3 mt-12 sm:grid-cols-2 lg:grid-cols-3">
             {styles.map((style) => {
               return (
                 <div
-                  className="group relative overflow-hidden rounded-2xl border bg-background p-5 md:p-8"
+                  className="relative p-5 overflow-hidden border group rounded-2xl bg-background md:p-8"
                   key={style.title}
                 >
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 aspect-video -translate-y-1/2 rounded-full border bg-gradient-to-b from-purple-500/80 to-white opacity-25 blur-2xl duration-300 group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
+                    className="absolute inset-0 duration-300 -translate-y-1/2 border rounded-full opacity-25 aspect-video bg-gradient-to-b from-purple-500/80 to-white blur-2xl group-hover:-translate-y-1/4 dark:from-white dark:to-white dark:opacity-5 dark:group-hover:opacity-10"
                   />
                   <div className="relative">
                     <div className="relative flex rounded-2xl border border-border shadow-sm *:relative *:m-auto ">
@@ -36,11 +36,11 @@ export default function Styles() {
                         alt={style.title}
                         width={400}
                         height={300}
-                        className="rounded-sm w-full"
+                        className="w-full rounded-sm"
                       />
                     </div>
 
-                    <h4 className="mt-6 font-semibold text-lg">
+                    <h4 className="mt-6 text-lg font-semibold">
                       {style.title}
                     </h4>
 

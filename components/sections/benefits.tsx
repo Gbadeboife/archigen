@@ -47,10 +47,10 @@ export default function Benefits() {
     <div className="py-10 sm:py-20">
       <MaxWidthWrapper className="grid gap-10 px-2.5 lg:grid-cols-2 lg:items-center lg:px-7">
         <div className= "lg:order-1">
-          <h2 className="font-heading text-3xl text-center lg:text-left text-foreground md:text-4xl lg:text-[40px]">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-[40px] text-foreground text-center lg:text-left">
             {data.title}
           </h2>
-          <p className="mt-4 text-center text-base lg:text-left text-muted-foreground">
+          <p className="mt-4 text-base text-muted-foreground text-center lg:text-left">
             {data.description}
           </p>
           <dl className="mt-6 space-y-4 leading-7">
@@ -78,7 +78,7 @@ export default function Benefits() {
               alt="Exterior Rendering Example"
               width={400}
               height={300}
-              className="rounded-lg shadow-lg w-full"
+              className="w-full rounded-lg shadow-lg"
             />
           </div>
         </div>

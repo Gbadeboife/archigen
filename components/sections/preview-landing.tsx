@@ -45,7 +45,7 @@ export default function PreviewLanding() {
     <div className="pb-6 sm:pb-16">
       <MaxWidthWrapper>
         <div className="rounded-xl md:bg-muted/30 md:p-3.5 md:ring-1 md:ring-inset md:ring-border">
-          <div className="relative aspect-video overflow-hidden rounded-xl border md:rounded-lg">
+          <div className="relative overflow-hidden border aspect-video rounded-xl md:rounded-lg">
 
           <div 
             ref={containerRef}
@@ -53,7 +53,7 @@ export default function PreviewLanding() {
           >
             {/* Left Image */}
             <div 
-              className="absolute top-0 left-0 w-full h-full flex items-center justify-center" 
+              className="absolute top-0 left-0 flex items-center justify-center w-full h-full" 
               style={{ 
                 clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` 
               }}
@@ -61,13 +61,13 @@ export default function PreviewLanding() {
               <img 
                 src="/_static/images/preview-before.png" 
                 alt="Left placeholder" 
-                className="w-full h-full object-cover" 
+                className="object-cover w-full h-full" 
               />
             </div>
 
             {/* Right Image */}
             <div 
-              className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+              className="absolute top-0 left-0 flex items-center justify-center w-full h-full"
               style={{ 
                 clipPath: `polygon(${sliderPosition}% 0, 100% 0, 100% 100%, ${sliderPosition}% 100%)` 
               }}
@@ -75,7 +75,7 @@ export default function PreviewLanding() {
               <img 
                 src="/_static/images/preview-after.png" 
                 alt="Right placeholder" 
-                className="w-full h-full object-cover" 
+                className="object-cover w-full h-full" 
               />
             </div>
 
@@ -87,7 +87,7 @@ export default function PreviewLanding() {
                 transform: 'translateX(-50%)' 
               }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-20 bg-white rounded-full shadow-lg"></div>
+              <div className="absolute w-1 h-20 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg top-1/2 left-1/2"></div>
               <div className="absolute top-0 bottom-0 w-0.5 bg-white left-1/2 -translate-x-1/2"></div>
             </div>
           </div>

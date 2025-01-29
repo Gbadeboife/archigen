@@ -9,8 +9,8 @@ import { Icons } from "@/components/shared/icons";
 export default async function HeroLanding() {
  
   return (
-    <section className="space-y-6 py-12 sm:py-20 lg:py-20">
-      <div className="container flex max-w-5xl flex-col items-center gap-5 text-center">
+    <section className="py-12 space-y-6 sm:py-20 lg:py-20">
+      <div className="container flex flex-col items-center max-w-5xl gap-5 text-center">
         <Link
           href=""
           className={cn(
@@ -25,14 +25,14 @@ export default async function HeroLanding() {
 
         <h1 className="text-balance font-urban text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-[66px]">
           The{" "}
-          <span className="text-gradient_indigo-purple font-extrabold">
+          <span className="font-extrabold text-gradient_indigo-purple">
             AI Assistant
           </span> {" "}
           for Architects{" "}
         </h1>
 
         <p
-          className="max-w-2xl text-balance leading-normal text-muted-foreground text-sm sm:leading-8 sm:text-base md:text-base lg:text-lg"
+          className="max-w-2xl text-sm leading-normal text-balance text-muted-foreground sm:leading-8 sm:text-base md:text-base lg:text-lg"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
           Achieve photorealistic renders in seconds.<br/>Transform ideas into reality with a click.

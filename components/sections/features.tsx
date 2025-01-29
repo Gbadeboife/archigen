@@ -8,10 +8,10 @@ export default function Features() {
     <section className="py-16">
       <MaxWidthWrapper>
       
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12">
+      <div className="container px-4 mx-auto">
+        <div className="grid gap-12 md:grid-cols-2">
           {/* Exterior Rendering Feature */}
-          <div className="flex flex-col items-center text-center mb-4">
+          <div className="flex flex-col items-center mb-4 text-center">
             {/*<Image
               src="/../../public/_static/images/benefits.png"
               alt="Exterior Rendering Icon"
@@ -21,7 +21,7 @@ export default function Features() {
             />
             */}
 
-            <h3 className="text-xl md:text-2xl font-semibold mb-2">Exterior Renders</h3>
+            <h3 className="mb-2 text-xl font-semibold md:text-2xl">Exterior Renders</h3>
             <p className="mb-6 text-sm md:text-base text-muted-foreground">
               Transform your architectural designs into stunning exterior visualizations with our AI-powered rendering
               engine.
@@ -31,7 +31,7 @@ export default function Features() {
               alt="Exterior Rendering Example"
               width={400}
               height={300}
-              className="rounded-lg shadow-lg w-full"
+              className="w-full rounded-lg shadow-lg"
             />
           </div>
 
@@ -45,7 +45,7 @@ export default function Features() {
               className="mb-4"
             />*/}
 
-            <h3 className="text-xl md:text-2xl font-semibold mb-2">Interior Renders</h3>
+            <h3 className="mb-2 text-xl font-semibold md:text-2xl">Interior Renders</h3>
             <p className="mb-6 text-sm md:text-base text-muted-foreground">
               Bring your interior spaces to life with photorealistic AI renders that showcase every detail of your
               design.
@@ -55,7 +55,7 @@ export default function Features() {
               alt="Interior Rendering Example"
               width={400}
               height={300}
-              className="rounded-lg shadow-lg w-full"
+              className="w-full rounded-lg shadow-lg"
             />
           </div>
         </div>
