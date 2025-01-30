@@ -20,11 +20,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "randomuser.me",
       },
+      {
+        protocol: "https",
+        hostname: "replicate.delivery",
+        pathname: "/**",
+      },
     ],
   },
   experimental: {
     serverComponentsExternalPackages: ["@prisma/client"],
   },
 };
+
+
 
 module.exports = withContentlayer(nextConfig);
