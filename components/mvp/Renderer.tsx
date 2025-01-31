@@ -166,7 +166,7 @@ export default function Renderer() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex flex-col xl:flex-row gap-6 min-h-screen">
+      <div className="flex flex-col lg:flex-row gap-6 min-h-screen">
         <div className="w-full xl:w-1/3 relative">
           <div className="space-y-6 overflow-y-auto max-h-[calc(100vh-2rem)] pb-20">
             {/*<Card>
@@ -217,7 +217,7 @@ export default function Renderer() {
             <Card>
               <CardContent className="p-3 md:p-6">
                 <h2 className="text-sm md:text-xl font-semibold mb-4">Render Style</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-4">
                   {styles.map((style) => (
                     <RenderStyleCard
                       key={style.title}

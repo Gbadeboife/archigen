@@ -76,7 +76,7 @@ export function UserAccountNav() {
                 </li>
               ) : null}
 
-              <li className="rounded-lg text-foreground hover:bg-muted">
+              {/*<li className="rounded-lg text-foreground hover:bg-muted">
                 <Link
                   href="/dashboard"
                   onClick={closeDrawer}
@@ -85,7 +85,7 @@ export function UserAccountNav() {
                   <LayoutDashboard className="size-4" />
                   <p className="text-sm">Dashboard</p>
                 </Link>
-              </li>
+              </li>*/}
 
               <li className="rounded-lg text-foreground hover:bg-muted">
                 <Link
@@ -150,12 +150,12 @@ export function UserAccountNav() {
           </DropdownMenuItem>
         ) : null}
 
-        <DropdownMenuItem asChild>
+        {/*<DropdownMenuItem asChild>
           <Link href="/dashboard" className="flex items-center space-x-2.5">
             <LayoutDashboard className="size-4" />
             <p className="text-sm">Dashboard</p>
           </Link>
-        </DropdownMenuItem>
+        </DropdownMenuItem>*/}
 
         <DropdownMenuItem asChild>
           <Link
