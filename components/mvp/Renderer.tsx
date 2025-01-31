@@ -166,9 +166,9 @@ export default function Renderer() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex flex-col lg:flex-row gap-6 min-h-screen">
-        <div className="w-full xl:w-1/3 relative">
-          <div className="space-y-6 overflow-y-auto max-h-[calc(100vh-2rem)] pb-20">
+      <div className="flex min-h-screen flex-col gap-6 lg:flex-row">
+        <div className="relative w-full xl:w-1/3">
+          <div className="max-h-[calc(100vh-2rem)] space-y-6 overflow-y-auto pb-20">
             {/*<Card>
               <CardContent className="p-6">
                 <h2 className="text-xl font-semibold mb-4">Category</h2>
@@ -190,14 +190,14 @@ export default function Renderer() {
 
             <Card>
               <CardContent className="p-3 md:p-6">
-                <h2 className="text-sm md:text-xl font-semibold mb-4">Upload Image</h2>
+                <h2 className="mb-4 text-sm font-semibold md:text-xl">Upload Image</h2>
                 <ImageDropzone onDrop={onDrop} uploadedImage={uploadedImage} />
               </CardContent>
             </Card>
 
             <Card>
               <CardContent className="p-3 md:p-6">
-                <h2 className="text-sm md:text-xl font-semibold mb-4">Prompt</h2>
+                <h2 className="mb-4 text-sm font-semibold md:text-xl">Prompt</h2>
                 <Input
                   placeholder="Detailed description of your scene"
                   value={prompt}
@@ -216,8 +216,8 @@ export default function Renderer() {
 
             <Card>
               <CardContent className="p-3 md:p-6">
-                <h2 className="text-sm md:text-xl font-semibold mb-4">Render Style</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-4">
+                <h2 className="mb-4 text-sm font-semibold md:text-xl">Render Style</h2>
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
                   {styles.map((style) => (
                     <RenderStyleCard
                       key={style.title}
@@ -233,11 +233,11 @@ export default function Renderer() {
 
             <Card>
               <CardContent className="p-3 md:p-6">
-                <h2 className="text-sm md:text-xl font-semibold mb-4">Advanced Settings</h2>
+                <h2 className="mb-4 text-sm font-semibold md:text-xl">Advanced Settings</h2>
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="numberOfOutputs">Number of Outputs</Label>
-                    <div className="flex justify-between mt-2">
+                    <div className="mt-2 flex justify-between">
                       {outputOptions.map((num) => (
                         <Button
                           key={num}
@@ -251,7 +251,7 @@ export default function Renderer() {
                   </div>
                   <div>
                     <Label htmlFor="renderQuality">Render Quality</Label>
-                    <div className="flex justify-between mt-2">
+                    <div className="mt-2 flex justify-between">
                       <Button
                         onClick={() => setSettings({ ...settings, renderQuality: "fast" })}
                         variant={settings.renderQuality === "fast" ? "default" : "outline"}
@@ -270,7 +270,7 @@ export default function Renderer() {
               </CardContent>
             </Card>
           </div>
-          <div className="fixed bottom-4 left-4 right-4 xl:left-auto xl:right-[calc(66.666667%+1rem)] xl:w-[calc(33.333333%-2rem)]">
+          <div className="fixed inset-x-4 bottom-4 xl:left-auto xl:right-[calc(66.666667%+1rem)] xl:w-[calc(33.333333%-2rem)]">
             <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
               {isLoading ? <LoadingSpinner /> : "Render"}
             </Button>
@@ -279,15 +279,15 @@ export default function Renderer() {
 
         <div className="w-full xl:w-2/3">
           <Card className="h-full">
-            <CardContent className="p-3 mb-12 lg:mb-0 md:p-6 h-full flex flex-col">
-              {error && <div className="text-red-500 mb-4">{error}</div>}
+            <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
+              {error && <div className="mb-4 text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (
                 <>
-                  <div className="grid grid-cols-4 gap-2 mb-4">
+                  <div className="mb-4 grid grid-cols-4 gap-2">
                     {renderedImages.map((image, index) => (
                       <div
                         key={index}
-                        className={`cursor-pointer border-2 rounded-lg overflow-hidden ${
+                        className={`cursor-pointer overflow-hidden rounded-lg border-2 ${
                           index === selectedImageIndex ? "border-primary" : "border-transparent"
                         }`}
                         onClick={() => setSelectedImageIndex(index)}
@@ -295,7 +295,7 @@ export default function Renderer() {
                         <img
                           src={image || "/placeholder.svg"}
                           alt={`Rendered thumbnail ${index + 1}`}
-                          className="w-full h-auto"
+                          className="h-auto w-full"
                         />
                       </div>
                     ))}
@@ -305,7 +305,7 @@ export default function Renderer() {
                       <img
                         src={renderedImages[selectedImageIndex] || "/placeholder.svg"}
                         alt={`Selected rendered image`}
-                        className="w-full h-auto rounded-lg shadow-md"
+                        className="h-auto w-full rounded-lg shadow-md"
                       />
                       <Button className="mt-4" onClick={() => handleDownload(renderedImages[selectedImageIndex])}>
                         Download
@@ -314,9 +314,9 @@ export default function Renderer() {
                   )}
                 </>
               ) : (
-                <div className="flex-grow flex flex-col items-center justify-center text-center text-gray-500 p-1 md:p-8 space-y-6">
-                  <h3 className="text-base md:text-xl font-semibold">How to Use ArchiGen AI</h3>
-                  <ol className="text-left space-y-4 max-w-lg text-sm md:text-base">
+                <div className="flex grow flex-col items-center justify-center space-y-6 p-1 text-center text-gray-500 md:p-8">
+                  <h3 className="text-base font-semibold md:text-xl">How to Use ArchiGen AI</h3>
+                  <ol className="max-w-lg space-y-4 text-left text-sm md:text-base">
                     {/*<li className="flex gap-2">
                       <span className="font-bold">1.</span>
                       <span>Select a category: Interior, Exterior, or Sketch</span>

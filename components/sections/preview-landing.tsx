@@ -45,15 +45,15 @@ export default function PreviewLanding() {
     <div className="pb-6 sm:pb-16">
       <MaxWidthWrapper>
         <div className="rounded-xl md:bg-muted/30 md:p-3.5 md:ring-1 md:ring-inset md:ring-border">
-          <div className="relative overflow-hidden border aspect-video rounded-xl md:rounded-lg">
+          <div className="relative aspect-video overflow-hidden rounded-xl border md:rounded-lg">
 
           <div 
             ref={containerRef}
-            className={`relative w-full h-full overflow-hidden`}
+            className={`relative size-full overflow-hidden`}
           >
             {/* Left Image */}
             <div 
-              className="absolute top-0 left-0 flex items-center justify-center w-full h-full" 
+              className="absolute left-0 top-0 flex size-full items-center justify-center" 
               style={{ 
                 clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` 
               }}
@@ -61,13 +61,13 @@ export default function PreviewLanding() {
               <img 
                 src="/_static/images/preview-before.png" 
                 alt="Left placeholder" 
-                className="object-cover w-full h-full" 
+                className="size-full object-cover" 
               />
             </div>
 
             {/* Right Image */}
             <div 
-              className="absolute top-0 left-0 flex items-center justify-center w-full h-full"
+              className="absolute left-0 top-0 flex size-full items-center justify-center"
               style={{ 
                 clipPath: `polygon(${sliderPosition}% 0, 100% 0, 100% 100%, ${sliderPosition}% 100%)` 
               }}
@@ -75,20 +75,20 @@ export default function PreviewLanding() {
               <img 
                 src="/_static/images/preview-after.png" 
                 alt="Right placeholder" 
-                className="object-cover w-full h-full" 
+                className="size-full object-cover" 
               />
             </div>
 
             {/* Slider */}
             <div 
-              className="absolute top-0 left-0 w-full h-full"
+              className="absolute left-0 top-0 size-full"
               style={{ 
                 left: `${sliderPosition}%`,
                 transform: 'translateX(-50%)' 
               }}
             >
-              <div className="absolute w-1 h-20 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg top-1/2 left-1/2"></div>
-              <div className="absolute top-0 bottom-0 w-0.5 bg-white left-1/2 -translate-x-1/2"></div>
+              <div className="absolute left-1/2 top-1/2 h-20 w-1 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-lg"></div>
+              <div className="absolute inset-y-0 left-1/2 w-0.5 -translate-x-1/2 bg-white"></div>
             </div>
           </div>
 

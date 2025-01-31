@@ -16,8 +16,8 @@ export function RenderStyleCard({ name, image, isSelected, onSelect }: RenderSty
       }`}
       onClick={onSelect}
     >
-      <CardContent className="p-1 flex flex-col items-center">
-        <Image src={`/_static/images/${image}` || "/placeholder.svg"} alt={name} width={100} height={100} className="rounded-md mb-2 w-full" />
+      <CardContent className="flex flex-col items-center p-1">
+        <Image src={`/_static/images/${image}` || "/placeholder.svg"} alt={name} width={100} height={100} className="mb-2 w-full rounded-md" />
         <h3 className="text-center text-xs sm:text-sm ">{name}</h3>
       </CardContent>
     </Card>

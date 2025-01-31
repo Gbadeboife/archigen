@@ -12,7 +12,7 @@ export default async function Generate() {
 
     return (
         <>
-            <header className="sticky top-0 z-50 flex h-14 items-center justify-end bg-background px-4 xl:px-8 lg:h-[60px]">
+            <header className="sticky top-0 z-50 flex h-14 items-center justify-end bg-background px-4 lg:h-[60px] xl:px-8">
                 <UserAccountNav/>
             </header>
 

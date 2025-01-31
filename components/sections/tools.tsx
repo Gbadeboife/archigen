@@ -75,11 +75,11 @@ export default function Tools() {
             title="Streamline Your Architecture Workflow with our AI Rendering Tools"
             subtitle="Explore our powerful tools, with more on the way."
         />
-        <div className="container px-4 mx-auto mt-6">
+        <div className="container mx-auto mt-6 px-4">
           <div className="grid gap-12 md:grid-cols-2">
             {tools.map((tool, index) => (
               <div key={index} className="flex flex-col items-center text-center">
-                <div className="relative w-full mb-6 border-2 rounded-md aspect-square">
+                <div className="relative mb-6 aspect-square w-full rounded-md border-2">
                   <Image
                     src={tool.image || "/placeholder.svg"}
                     alt={`${tool.name} icon`}
@@ -88,10 +88,10 @@ export default function Tools() {
                   />
                 </div>
                 <h3 className="mb-1 text-xl font-semibold md:mb-3">{tool.name}</h3>
-                <p className="mb-3 text-sm md:text-base font-sm text-muted-foreground">{tool.description}</p>
+                <p className="font-sm mb-3 text-sm text-muted-foreground md:text-base">{tool.description}</p>
                 <Link
                   href={tool.link}
-                  className="px-6 py-2 text-sm font-medium text-white transition-colors duration-300 bg-blue-600 rounded-full sm:text-base link-gradient_indigo-purple hover:bg-blue-700"
+                  className="link-gradient_indigo-purple rounded-full bg-blue-600 px-6 py-2 text-sm font-medium text-white transition-colors duration-300 hover:bg-blue-700 sm:text-base"
                 >
                   {tool.link === "" ? "Coming Soon" : `Try ${tool.name}`}                  
                 </Link>

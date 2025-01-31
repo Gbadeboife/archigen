@@ -19,13 +19,13 @@ export function ImageDropzone({ onDrop, uploadedImage }: ImageDropzoneProps) {
   return (
     <div
       {...getRootProps()}
-      className={`border-2 border-dashed rounded-lg p-4 text-center cursor-pointer transition-colors ${
+      className={`cursor-pointer rounded-lg border-2 border-dashed p-4 text-center transition-colors ${
         isDragActive ? 'border-primary bg-primary/10' : 'border-gray-300 hover:border-primary'
       }`}
     >
       <input {...getInputProps()} />
       {uploadedImage ? (
-        <div className="relative w-full aspect-square">
+        <div className="relative aspect-square w-full">
           <Image
             src={uploadedImage || "/placeholder.svg"}
             alt="Uploaded image"
@@ -36,7 +36,7 @@ export function ImageDropzone({ onDrop, uploadedImage }: ImageDropzoneProps) {
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center py-8">
-          <Upload className="w-12 h-12 text-gray-400 mb-4" />
+          <Upload className="mb-4 size-12 text-gray-400" />
           <p className="text-sm text-gray-600">
             {isDragActive
               ? 'Drop the image here'

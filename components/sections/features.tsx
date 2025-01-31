@@ -8,10 +8,10 @@ export default function Features() {
     <section className="py-16">
       <MaxWidthWrapper>
       
-      <div className="container px-4 mx-auto">
+      <div className="container mx-auto px-4">
         <div className="grid gap-12 md:grid-cols-2">
           {/* Exterior Rendering Feature */}
-          <div className="flex flex-col items-center mb-4 text-center">
+          <div className="mb-4 flex flex-col items-center text-center">
             {/*<Image
               src="/../../public/_static/images/benefits.png"
               alt="Exterior Rendering Icon"
@@ -22,7 +22,7 @@ export default function Features() {
             */}
 
             <h3 className="mb-2 text-xl font-semibold md:text-2xl">Exterior Renders</h3>
-            <p className="mb-6 text-sm md:text-base text-muted-foreground">
+            <p className="mb-6 text-sm text-muted-foreground md:text-base">
               Transform your architectural designs into stunning exterior visualizations with our AI-powered rendering
               engine.
             </p>
@@ -46,7 +46,7 @@ export default function Features() {
             />*/}
 
             <h3 className="mb-2 text-xl font-semibold md:text-2xl">Interior Renders</h3>
-            <p className="mb-6 text-sm md:text-base text-muted-foreground">
+            <p className="mb-6 text-sm text-muted-foreground md:text-base">
               Bring your interior spaces to life with photorealistic AI renders that showcase every detail of your
               design.
             </p>
