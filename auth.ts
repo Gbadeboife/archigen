@@ -61,6 +61,12 @@ export const {
 
       return token;
     },
+
+    async redirect({ url, baseUrl }) {
+      // You can customize this to redirect to different pages
+      // for new vs returning users by checking the user status
+      return `${baseUrl}/generate` // or any other page you want
+    }
   },
   ...authConfig,
   // debug: process.env.NODE_ENV !== "production"
