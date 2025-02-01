@@ -341,7 +341,7 @@ export default function Renderer() {
                     </li>
                     <li className="flex gap-2">
                       <span className="font-bold">6.</span>
-                      <span>Click "Render" to generate your realistic rendered images</span>
+                      <span>Click &quot;Render&quot; to generate your realistic rendered images</span>
                     </li>
                   </ol>
                 </div>
