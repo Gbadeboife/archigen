@@ -67,7 +67,7 @@ export default function Tools() {
 
 
   return (
-    <section className="py-32">
+    <section className="py-32" id="tools">
       <MaxWidthWrapper>
 
         <HeaderSection
