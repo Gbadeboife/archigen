@@ -1,3 +1,5 @@
+"use client";
+
 import { signIn } from "next-auth/react";
 import {
   Dispatch,
@@ -30,7 +32,7 @@ function SignInModal({
           </a>
           <h3 className="font-urban text-2xl font-bold">Sign In</h3>
           <p className="text-sm text-gray-500">
-          Let's get started! Sign in to access ArchiGen
+            Let&apos;s get started! Sign in to access ArchiGen
           </p>
         </div>
 
