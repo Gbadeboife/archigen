@@ -217,7 +217,7 @@ export default function Renderer() {
             <Card>
               <CardContent className="p-3 md:p-6">
                 <h2 className="mb-4 text-sm font-semibold md:text-xl">Render Style</h2>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4 lg:gap-2 md:grid-cols-6 lg:grid-cols-4">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4 md:grid-cols-6 lg:grid-cols-4 lg:gap-2">
                   {styles.map((style) => (
                     <RenderStyleCard
                       key={style.title}
@@ -269,7 +269,7 @@ export default function Renderer() {
                 </div>
               </CardContent>
             </Card>
-            <div className="w-full fixed bottom-4 lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)] rounded-lg bg-background border">
+            <div className="fixed bottom-4 w-full rounded-lg border bg-background lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)]">
               <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
                 {isLoading ? <LoadingSpinner /> : "Render"}
               </Button>
