@@ -58,9 +58,13 @@ export default function PreviewLanding() {
                 clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)` 
               }}
             >
-              <img 
+              <Image 
                 src="/_static/images/preview-before.png" 
                 alt="Left placeholder" 
+                width={800}
+                height={600}
+                priority
+                unoptimized
                 className="size-full object-cover" 
               />
             </div>
@@ -72,9 +76,13 @@ export default function PreviewLanding() {
                 clipPath: `polygon(${sliderPosition}% 0, 100% 0, 100% 100%, ${sliderPosition}% 100%)` 
               }}
             >
-              <img 
+              <Image
                 src="/_static/images/preview-after.png" 
                 alt="Right placeholder" 
+                width={800}
+                height={600}
+                priority
+                unoptimized
                 className="size-full object-cover" 
               />
             </div>
