@@ -14,16 +14,22 @@ Output the result in a clean, structured format, optimized for ControlNet depth 
 
 Based on the provided image, generate a prompt following the above guidelines:`
 
-
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY!
 })
 
 export async function POST(req: Request) {
-  const body = await req.json()
-  const { image } = body
-
   try {
+    const body = await req.json()
+    const { image } = body
+
+    if (!image) {
+      return NextResponse.json(
+        { error: "Image is required" },
+        { status: 400 }
+      )
+    }
+
     const response = await openai.chat.completions.create({
       model: "gpt-4-vision-preview",
       messages: [
@@ -40,14 +46,22 @@ export async function POST(req: Request) {
           ],
         },
       ],
+      max_tokens: 1000,
     })
 
-    const generatedPrompt = response.choices[0].message.content
+    const generatedPrompt = response.choices[0]?.message?.content || ''
+
+    if (!generatedPrompt) {
+      throw new Error("No prompt generated")
+    }
 
     return NextResponse.json({ generatedPrompt })
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error:", error)
-    return NextResponse.json({ error: "An error occurred while generating the prompt" }, { status: 500 })
+    return NextResponse.json(
+      { error: error?.message || "An error occurred while generating the prompt" },
+      { status: 500 }
+    )
   }
 }
 
