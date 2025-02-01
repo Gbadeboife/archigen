@@ -113,7 +113,7 @@ export const styles: StylesLdg[] = [
       "Creates warm, inviting, and comfortable spaces by prioritizing simplicity, functionality, and natural materials.",
     image: "st-scandinavian.jpg",
   },
-  {
+  /*{
     title: "Mediterranean",
     description:
       "Captures the essence of sun-drenched coastal living with warm color palettes and natural materials.",
@@ -124,7 +124,7 @@ export const styles: StylesLdg[] = [
     description:
       "Celebrates raw material and exposed metalwork, revealing structural elements and embracing open layouts.",
     image: "st-industrial.jpg",
-  },
+  },*/
 ];
 
 export const testimonials: TestimonialType[] = [
@@ -135,7 +135,7 @@ export const testimonials: TestimonialType[] = [
     review:
       "The next-saas-stripe-starter repo has truly revolutionized my development workflow. With its comprehensive features and seamless integration with Stripe, I've been able to build and deploy projects faster than ever before. The documentation is clear and concise, making it easy to navigate through the setup process. I highly recommend next-saas-stripe-starter to any developer.",
   },
-  {
+  { 
     name: "Alice Smith",
     job: "UI/UX Designer",
     image: "https://randomuser.me/api/portraits/women/2.jpg",

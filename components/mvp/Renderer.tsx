@@ -165,9 +165,9 @@ export default function Renderer() {
   }
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="m-auto w-full p-4">
       <div className="flex min-h-screen flex-col gap-6 lg:flex-row">
-        <div className="relative w-full xl:w-1/3">
+        <div className="relative w-full lg:flex-[1]">
           <div className="max-h-[calc(100vh-2rem)] space-y-6 overflow-y-auto pb-20">
             {/*<Card>
               <CardContent className="p-6">
@@ -201,7 +201,7 @@ export default function Renderer() {
                 <Input
                   placeholder="Detailed description of your scene"
                   value={prompt}
-                  className="text-sm md:text-base"
+                  className="text-sm"
                   onChange={(e) => setPrompt(e.target.value)}
                 />
                 {/*<Button
@@ -217,7 +217,7 @@ export default function Renderer() {
             <Card>
               <CardContent className="p-3 md:p-6">
                 <h2 className="mb-4 text-sm font-semibold md:text-xl">Render Style</h2>
-                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4 md:grid-cols-6">
+                <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4 lg:gap-2 md:grid-cols-6 lg:grid-cols-4">
                   {styles.map((style) => (
                     <RenderStyleCard
                       key={style.title}
@@ -269,16 +269,17 @@ export default function Renderer() {
                 </div>
               </CardContent>
             </Card>
+            <div className="w-full fixed bottom-4 lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)] rounded-lg bg-background border">
+              <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
+                {isLoading ? <LoadingSpinner /> : "Render"}
+              </Button>
+            </div>
           </div>
-          <div className="fixed inset-x-4 bottom-4 xl:left-auto xl:right-[calc(66.666667%+1rem)] xl:w-[calc(33.333333%-2rem)]">
-            <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
-              {isLoading ? <LoadingSpinner /> : "Render"}
-            </Button>
-          </div>
+
         </div>
 
-        <div className="w-full xl:w-2/3">
-          <Card className="h-full">
+        <div className="w-full lg:w-auto lg:flex-[2]">
+          <Card className="h-[calc(100%-60px)]">
             <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
               {error && <div className="mb-4 text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (
@@ -328,7 +329,7 @@ export default function Renderer() {
                     <li className="flex gap-2">
                       <span className="font-bold">2.</span>
                       <span>
-                        Enter a prompt describing your desired changes{/*, or click "Generate with AI" for suggestions*/}
+                        Enter a prompt describing your desired render{/*, or click "Generate with AI" for suggestions*/}
                       </span>
                     </li>
                     <li className="flex gap-2">

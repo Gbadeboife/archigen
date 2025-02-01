@@ -18,7 +18,7 @@ export function RenderStyleCard({ name, image, isSelected, onSelect }: RenderSty
     >
       <CardContent className="flex flex-col items-center p-1">
         <Image src={`/_static/images/${image}` || "/placeholder.svg"} alt={name} width={100} height={100} className="mb-2 w-full rounded-md" />
-        <h3 className="text-center text-xs sm:text-sm ">{name}</h3>
+        <h3 className="text-center text-xs ">{name}</h3>
       </CardContent>
     </Card>
   )
