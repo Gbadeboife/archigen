@@ -5,6 +5,8 @@ import { prisma } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
 import { UserSubscriptionPlan } from "types";
 
+
+/*
 export async function getUserSubscriptionPlan(
   userId: string
 ): Promise<UserSubscriptionPlan> {
@@ -62,4 +64,28 @@ export async function getUserSubscriptionPlan(
     interval,
     isCanceled
   }
+}
+
+*/
+
+export async function getUserSubscriptionPlan(userId: string) {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      flwCustomerId: true,
+      flwSubscriptionId: true,
+      flwPlanId: true,
+      subscriptionPeriodEnd: true,
+    },
+  });
+
+  if (!user) throw new Error("User not found");
+
+  const isPaid = user.subscriptionPeriodEnd?.getTime() ?? 0 > Date.now();
+
+  return {
+    ...user,
+    isPaid,
+    isCanceled: !user.flwSubscriptionId,
+  };
 }

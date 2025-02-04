@@ -44,7 +44,7 @@ export type DocsConfig = {
   sidebarNav: SidebarNavItem[];
 };
 
-// subcriptions
+// subscriptions
 export type SubscriptionPlan = {
   title: string;
   description: string;
@@ -54,15 +54,15 @@ export type SubscriptionPlan = {
     monthly: number;
     yearly: number;
   };
-  stripeIds: {
+  flwIds: {
     monthly: string | null;
     yearly: string | null;
   };
 };
 
 export type UserSubscriptionPlan = SubscriptionPlan &
-  Pick<User, "stripeCustomerId" | "stripeSubscriptionId" | "stripePriceId"> & {
-    stripeCurrentPeriodEnd: number;
+  Pick<User, "flwCustomerId" | "flwSubscriptionId" | "flwPlanId"> & {
+    subscriptionPeriodEnd: Date | null;
     isPaid: boolean;
     interval: "month" | "year" | null;
     isCanceled?: boolean;

@@ -22,10 +22,11 @@ export const pricingData: SubscriptionPlan[] = [
       monthly: 0,
       yearly: 0,
     },
-    stripeIds: {
+    flwIds: {
       monthly: null,
       yearly: null,
     },
+    
   },
   {
     title: "Pro",
@@ -46,9 +47,9 @@ export const pricingData: SubscriptionPlan[] = [
       monthly: 20,
       yearly: 192,
     },
-    stripeIds: {
-      monthly: env.NEXT_PUBLIC_STRIPE_PRO_MONTHLY_PLAN_ID,
-      yearly: env.NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID,
+    flwIds: {
+      monthly: env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID,
+      yearly: env.NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID,
     },
   },
   /*{

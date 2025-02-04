@@ -1,11 +1,11 @@
 "use client";
 
 import { useTransition } from "react";
-import { generateUserStripe } from "@/actions/generate-user-stripe";
 import { SubscriptionPlan, UserSubscriptionPlan } from "@/types";
-
 import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
+import { generatePaymentSession } from "@/actions/generate-payment-session";
+import { toast } from "@/components/ui/use-toast";
 
 interface BillingFormButtonProps {
   offer: SubscriptionPlan;
@@ -13,23 +13,43 @@ interface BillingFormButtonProps {
   year: boolean;
 }
 
-export function   BillingFormButton({
+export function BillingFormButton({
   year,
   offer,
   subscriptionPlan,
 }: BillingFormButtonProps) {
   let [isPending, startTransition] = useTransition();
-  const generateUserStripeSession = generateUserStripe.bind(
-    null,
-    offer.stripeIds[year ? "yearly" : "monthly"],
-  );
 
-  const stripeSessionAction = () =>
-    startTransition(async () => await generateUserStripeSession());
+  const handlePayment = async () => {
+    try {
+      const amount = year ? offer.prices.yearly : offer.prices.monthly;
+      const planType = year ? "yearly" : "monthly";
+      
+      const response = await generatePaymentSession(amount, offer.title, planType);
+
+      if (response.status === "success" && response.data?.link) {
+        window.location.href = response.data.link;
+      } else {
+        throw new Error(response.message || "Payment initialization failed");
+      }
+    } catch (error) {
+      console.error("Payment error details:", {
+        error,
+        offer,
+        year,
+        planTitle: offer.title
+      });
+      
+      toast({
+        title: "Payment Error",
+        description: error instanceof Error ? error.message : "Failed to initialize payment",
+        variant: "destructive",
+      });
+    }
+  };
 
   const userOffer =
-    subscriptionPlan.stripePriceId ===
-    offer.stripeIds[year ? "yearly" : "monthly"];
+    subscriptionPlan.flwPlanId === offer.flwIds[year ? "yearly" : "monthly"];
 
   return (
     <Button
@@ -37,7 +57,7 @@ export function   BillingFormButton({
       rounded="full"
       className="w-full"
       disabled={isPending}
-      onClick={stripeSessionAction}
+      onClick={() => startTransition(handlePayment)}
     >
       {isPending ? (
         <>

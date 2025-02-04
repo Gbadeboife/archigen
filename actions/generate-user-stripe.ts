@@ -1,4 +1,4 @@
-"use server";
+/*"use server";
 
 import { auth } from "@/auth";
 import { stripe } from "@/lib/stripe";
@@ -64,3 +64,4 @@ export async function generateUserStripe(priceId: string): Promise<responseActio
   // no revalidatePath because redirect
   redirect(redirectUrl)
 }
+  */

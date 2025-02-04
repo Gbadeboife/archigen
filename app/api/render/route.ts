@@ -66,10 +66,10 @@ async function upscaleImage(image: string, prompt: string) {
 }
 
 export async function POST(req: Request) {
-  const body = await req.json()
-  const { image, prompt, style, category, numberOfOutputs, renderQuality } = body
-
   try {
+    const body = await req.json()
+    const { image, prompt, style, category, numberOfOutputs, renderQuality } = body
+
     // Fetch the latest version for the rendering model
     const latestRenderVersion = await getLatestModelVersion("lucataco", "sdxl-controlnet")
 
@@ -135,9 +135,16 @@ export async function POST(req: Request) {
     }
   } catch (error) {
     console.error("Error:", error)
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "An unexpected error occurred while rendering and upscaling" },
-      { status: 500 },
+    return new NextResponse(
+      JSON.stringify({
+        error: error instanceof Error ? error.message : "An unexpected error occurred while rendering and upscaling"
+      }),
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     )
   }
 }

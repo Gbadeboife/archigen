@@ -1,4 +1,4 @@
-import { headers } from "next/headers";
+/*import { headers } from "next/headers";
 import Stripe from "stripe";
 
 import { env } from "@/env.mjs";
@@ -75,3 +75,4 @@ export async function POST(req: Request) {
 
   return new Response(null, { status: 200 });
 }
+*/
