@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         version: latestRenderVersion,
         input: {
           image: image,
-          prompt: style !== '' ? `${style} style, ${prompt}`: {prompt},
+          prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
         },
       }),
     })
