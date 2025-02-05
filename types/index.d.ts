@@ -62,7 +62,7 @@ export type SubscriptionPlan = {
 
 export type UserSubscriptionPlan = SubscriptionPlan &
   Pick<User, "flwCustomerId" | "flwSubscriptionId" | "flwPlanId"> & {
-    subscriptionPeriodEnd: Date | null;
+    subscriptionPeriodEnd: string | null;
     isPaid: boolean;
     interval: "month" | "year" | null;
     isCanceled?: boolean;

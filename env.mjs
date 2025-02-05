@@ -15,6 +15,11 @@ export const env = createEnv({
     EMAIL_FROM: z.string().min(1),
     STRIPE_API_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
+    REPLICATE_API_KEY: z.string().min(1),
+    OPENAI_API_KEY: z.string().min(1),
+    FLW_PUBLIC_KEY: z.string().min(1),
+    FLW_SECRET_KEY: z.string().min(1),
+    FLW_WEBHOOK_HASH: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -22,6 +27,8 @@ export const env = createEnv({
     NEXT_PUBLIC_STRIPE_PRO_YEARLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID: z.string().min(1),
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID: z.string().min(1),
+    NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID: z.string().min(1),
+    NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID: z.string().min(1),
   },
   runtimeEnv: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
@@ -44,5 +51,14 @@ export const env = createEnv({
       process.env.NEXT_PUBLIC_STRIPE_BUSINESS_MONTHLY_PLAN_ID,
     NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID:
       process.env.NEXT_PUBLIC_STRIPE_BUSINESS_YEARLY_PLAN_ID,
+    REPLICATE_API_KEY: process.env.REPLICATE_API_KEY,
+    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    FLW_PUBLIC_KEY: process.env.FLW_PUBLIC_KEY,
+    FLW_SECRET_KEY: process.env.FLW_SECRET_KEY,
+    FLW_WEBHOOK_HASH: process.env.FLW_WEBHOOK_HASH,
+    NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID: 
+      process.env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID,
+    NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID:
+      process.env.NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID,
   },
 });

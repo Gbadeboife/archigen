@@ -22,10 +22,10 @@ export function BillingInfo({ userSubscriptionPlan }: BillingInfoProps) {
   const {
     title,
     description,
-    stripeCustomerId,
+    flwCustomerId,
     isPaid,
     isCanceled,
-    stripeCurrentPeriodEnd,
+    subscriptionPeriodEnd,
   } = userSubscriptionPlan;
 
   return (
@@ -43,12 +43,12 @@ export function BillingInfo({ userSubscriptionPlan }: BillingInfoProps) {
             {isCanceled
               ? "Your plan will be canceled on "
               : "Your plan renews on "}
-            {formatDate(stripeCurrentPeriodEnd)}.
+            {subscriptionPeriodEnd ? formatDate(subscriptionPeriodEnd) : "N/A"}.
           </p>
         ) : null}
 
-        {isPaid && stripeCustomerId ? (
-          <CustomerPortalButton userStripeId={stripeCustomerId} />
+        {isPaid && flwCustomerId ? (
+          <CustomerPortalButton userStripeId={flwCustomerId} />
         ) : (
           <Link href="/pricing" className={cn(buttonVariants())}>
             Choose a plan
