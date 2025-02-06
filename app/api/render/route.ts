@@ -41,13 +41,20 @@ async function upscaleImage(image: string, prompt: string) {
 
   const prediction = await response.json()
 
+  let attempts = 0;
+  const maxAttempts = 60; // 1 minute maximum waiting time
+
   // Poll for result
-  while (true) {
+  while (attempts < maxAttempts) {
     const statusResponse = await fetch(`https://api.replicate.com/v1/predictions/${prediction.id}`, {
       headers: {
         Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
       },
     })
+
+    if (!statusResponse.ok) {
+      throw new Error(`Failed to check prediction status: ${statusResponse.statusText}`)
+    }
 
     const status = await statusResponse.json()
 
@@ -60,10 +67,15 @@ async function upscaleImage(image: string, prompt: string) {
       throw new Error(`Upscaling failed: ${status.error || "Unknown error"}`)
     }
 
-    // Wait before polling again
+    attempts++
     await new Promise((resolve) => setTimeout(resolve, 1000))
   }
+  
+  throw new Error("Operation timed out after 60 seconds")
 }
+
+export const runtime = 'edge' // Add edge runtime
+export const maxDuration = 300 // 5 minutes timeout
 
 export async function POST(req: Request) {
   try {
@@ -98,13 +110,20 @@ export async function POST(req: Request) {
 
     let renderedImage
 
+    let attempts = 0;
+    const maxAttempts = 180; // 3 minutes maximum waiting time
+
     // Poll for render results
-    while (true) {
+    while (attempts < maxAttempts) {
       const statusResponse = await fetch(`https://api.replicate.com/v1/predictions/${renderPrediction.id}`, {
         headers: {
           Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
         },
       })
+
+      if (!statusResponse.ok) {
+        throw new Error(`Failed to check prediction status: ${statusResponse.statusText}`)
+      }
 
       const status = await statusResponse.json()
 
@@ -113,15 +132,14 @@ export async function POST(req: Request) {
 
         if (renderedImage /*&& renderedImages.length > 0*/) {
           if (renderQuality === "best") {
-            /*// Upscale each rendered image
-            const upscaledImages = await Promise.all(
-              renderedImages.map((img: string) => upscaleImage(img, prompt)),
-            )
-            */
-            const upscaledImages = await upscaleImage(renderedImage, prompt)
-            return NextResponse.json({ images: upscaledImages })
+            try {
+              const upscaledImages = await upscaleImage(renderedImage, prompt)
+              return NextResponse.json({ images: upscaledImages })
+            } catch (upscaleError) {
+              console.error("Upscaling failed, returning original image:", upscaleError)
+              return NextResponse.json({ images: [renderedImage] })
+            }
           } else {
-            // Return the rendered images without upscaling
             return NextResponse.json({ images: [renderedImage] })
           }
         } else {
@@ -131,8 +149,11 @@ export async function POST(req: Request) {
         throw new Error(`Rendering failed: ${status.error || "Unknown error"}`)
       }
 
+      attempts++
       await new Promise((resolve) => setTimeout(resolve, 1000))
     }
+
+    throw new Error("Operation timed out after 3 minutes")
   } catch (error) {
     console.error("Error:", error)
     return new NextResponse(
