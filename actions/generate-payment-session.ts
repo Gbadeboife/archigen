@@ -43,13 +43,13 @@ export async function generatePaymentSession(
       amount,
       currency: "USD",
       redirect_url: callbackUrl,
-      payment_options: "card, banktransfer",
+      payment_options: "card",
       customer: {
         email: user.email,
         name: user.name || user.email,
       },
       customizations: {
-        title: `${planTitle} Subscription`,
+        title: `ArchiGen ${planTitle} Subscription`,
         description: `${planType} subscription to ${planTitle}`,
         logo: "/logo.png",
       },
