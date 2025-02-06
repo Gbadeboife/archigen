@@ -7,9 +7,9 @@ export const siteConfig: SiteConfig = {
   name: "ArchiGen",
   logo: "/_static/logo.jpg",
   description:
-    "Get your project off to an explosive start with SaaS Starter! Harness the power of Next.js 14, Prisma, Neon, Auth.js v5, Resend, React Email, Shadcn/ui and Stripe to build your next big thing.",
+    "Generate photorealistic architecture renders in seconds using AI. No design skills required.",
   url: site_url,
-  ogImage: `${site_url}/_static/og.jpg`,
+  ogImage: `${site_url}/_static/og.png`,
   links: {
     twitter: "https://twitter.com/miickasmt",
     github: "https://github.com/mickasmt/next-saas-stripe-starter",
