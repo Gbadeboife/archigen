@@ -250,7 +250,7 @@ export default function Renderer() {
                     </div>
                   </div>
                   <div>
-                    <Label htmlFor="renderQuality">Render Quality</Label>
+                    <Label htmlFor="renderQuality">Render Options</Label>
                     <div className="mt-2 flex justify-between">
                       <Button
                         onClick={() => setSettings({ ...settings, renderQuality: "fast" })}
@@ -279,7 +279,7 @@ export default function Renderer() {
         </div>
 
         <div className="w-full lg:w-auto lg:flex-[2]">
-          <Card className="h-[calc(100%-60px)]">
+          <Card className="h-auto">
             <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
               {error && <div className="mb-4 text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (

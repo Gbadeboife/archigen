@@ -31,7 +31,7 @@ export const env = createEnv({
     NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID: z.string().min(1),
   },
   runtimeEnv: {
-    //NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET, // Changed from AUTH_SECRET
     GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
     GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
