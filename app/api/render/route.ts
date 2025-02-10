@@ -112,10 +112,13 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json()
-    const { image, prompt, style, category, numberOfOutputs, renderQuality } = body
+    const { image, isUrl, prompt, style, category, numberOfOutputs, renderQuality } = body
 
     // Fetch the latest version for the rendering model
     const latestRenderVersion = await getLatestModelVersion("lucataco", "sdxl-controlnet")
+
+    // Use image directly if it's a URL, otherwise use the base64 image
+    const imageInput = isUrl ? image : image
 
     // Render the images
     const renderResponse = await fetch("https://api.replicate.com/v1/predictions", {
@@ -127,7 +130,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         version: latestRenderVersion,
         input: {
-          image: image,
+          image: imageInput,
           prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
         },
       }),

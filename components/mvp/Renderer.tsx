@@ -31,6 +31,7 @@ export default function Renderer() {
   const [error, setError] = useState<string | null>(null)
   const [renderCount, setRenderCount] = useState<number>(0)
   const [isSubscribed, setIsSubscribed] = useState<boolean>(false)
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
   const MAX_FREE_RENDERS = 10
 
   useEffect(() => {
@@ -51,19 +52,43 @@ export default function Renderer() {
   const categories = ["interior", "exterior", "sketch"]
   const outputOptions = [1]
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
     const reader = new FileReader()
-    reader.onload = (e) => {
-      const dataUrl = e.target?.result as string
-      const base64Image = dataUrl.split(",")[1]
-      const repImageUrl = `data:application/octet-stream;base64,${base64Image}`
 
-      setUploadedImage(dataUrl)
-      setUploadedRepImage(repImageUrl)
+    if (file.size >= 1024 * 1024) { // 1MB or larger
+      try {
+        const formData = new FormData()
+        formData.append('file', file)
+        
+        const response = await fetch('/api/upload', {
+          method: 'POST',
+          body: formData
+        })
+        
+        if (!response.ok) throw new Error('Upload failed')
+        
+        const { url } = await response.json()
+        setImageUrl(url)
+        setUploadedImage(url)
+        setUploadedRepImage(url)
+      } catch (error) {
+        console.error('Error uploading to blob:', error)
+        setError('Failed to upload image')
+      }
+    } else {
+      // Handle smaller files with base64 as before
+      reader.onload = (e) => {
+        const dataUrl = e.target?.result as string
+        const base64Image = dataUrl.split(",")[1]
+        const repImageUrl = `data:application/octet-stream;base64,${base64Image}`
+
+        setUploadedImage(dataUrl)
+        setUploadedRepImage(repImageUrl)
+        setImageUrl(null)
+      }
+      reader.readAsDataURL(file)
     }
-
-    reader.readAsDataURL(file)
   }, [])
 
   const handleGenerateWithAI = async () => {
@@ -101,7 +126,7 @@ export default function Renderer() {
   }
 
   const handleRender = async () => {
-    if (!uploadedRepImage) {
+    if (!uploadedRepImage && !imageUrl) {
       setError("Please upload an image first.")
       return
     }
@@ -121,7 +146,8 @@ export default function Renderer() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          image: uploadedRepImage,
+          image: imageUrl || uploadedRepImage,
+          isUrl: !!imageUrl,
           prompt: prompt,
           style: selectedStyle,
           category: selectedCategory,
