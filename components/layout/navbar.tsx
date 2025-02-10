@@ -106,7 +106,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
               className="hidden md:block"
             >
               <Button
-                className="gap-2 px-5 link-gradient_indigo-purple"
+                className="link-gradient_indigo-purple gap-2 px-5"
                 variant="default"
                 size="sm"
                 rounded="full"

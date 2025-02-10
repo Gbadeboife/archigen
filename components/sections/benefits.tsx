@@ -31,7 +31,7 @@ export default function Benefits() {
       },
       {
         title: "Easy to Use",
-        description: "Our AI analyzes your images to create the perfect prompt to achieve stunning results.",
+        description: "Our app is designed to be intuitive and user-friendly, so you can get started right away.",
         icon: "check",
       },
       {

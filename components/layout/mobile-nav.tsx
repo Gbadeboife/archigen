@@ -89,7 +89,7 @@ export function NavMobile() {
                 <Link
                   href="/generate"
                   onClick={() => setOpen(false)}
-                  className="flex w-full link-gradient_indigo-purple font-medium capitalize"
+                  className="link-gradient_indigo-purple flex w-full font-medium capitalize"
                 >
                   Get started
                 </Link>

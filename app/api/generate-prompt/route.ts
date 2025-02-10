@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import OpenAI from "openai"
 
-const aiPromptTemplate = `Act as an expert prompt engineer skilled in generating ControlNet prompts for Stable Diffusion to achieve the highest-quality results. I need a highly detailed, structured prompt based on the image I provide. The prompt should be around 150 words long. The prompt should include:
+const aiPromptTemplate = `Act as an expert prompt engineer skilled in generating ControlNet prompts for Stable Diffusion to achieve the highest-quality results. I need a highly detailed, structured prompt based on the image I provide. The prompt should be around 100 words long. The prompt should include:
 
 1. Clear descriptions of the scene's elements, objects, and their arrangement.
 2. Visual style (e.g., Scandinavian, cyberpunk, hyper-realistic, anime, cinematic).
