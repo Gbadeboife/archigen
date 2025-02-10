@@ -77,7 +77,7 @@ async function upscaleImage(image: string, prompt: string) {
 }
 
 export const runtime = 'nodejs' // Add edge runtime
-export const maxDuration = 300 // 5 minutes timeout
+export const maxDuration = 60 // 1 minutes timeout
 
 export async function POST(req: Request) {
   try {
