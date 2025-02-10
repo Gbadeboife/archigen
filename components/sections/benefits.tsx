@@ -22,7 +22,7 @@ export default function Benefits() {
     title: "Accelerate Your Design Process with AI",
     description:
       "Transform your workflow with AI-powered rendering that delivers stunning visuals in a fraction of the time.",
-    image: "/_static/illustrations/work-from-home.jpg",
+    image: "/_static/images/benefits.png",
     list: [
       {
         title: "Speed",
@@ -31,7 +31,7 @@ export default function Benefits() {
       },
       {
         title: "Easy to Use",
-        description: "Our app is designed to be intuitive and user-friendly, so you can get started right away.",
+        description: "ArchiGen is designed to be intuitive and user-friendly, so you can get started right away.",
         icon: "check",
       },
       {
@@ -72,9 +72,9 @@ export default function Benefits() {
         </div>
         <div
           className= "overflow-hidden rounded-xl border lg:-m-4">
-          <div className="aspect-video">
+          <div className="">
             <Image
-              src="/_static/images/benefits.png"
+              src={data.image}
               alt="Exterior Rendering Example"
               width={400}
               height={300}
