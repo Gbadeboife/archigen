@@ -78,7 +78,7 @@ export default function Benefits() {
               alt="Exterior Rendering Example"
               width={400}
               height={300}
-              className="h-auto w-full rounded-lg shadow-lg"
+              className="size-full rounded-lg shadow-lg"
             />
           </div>
         </div>
