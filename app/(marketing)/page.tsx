@@ -1,4 +1,4 @@
-import Tools from "@/components/sections/tools";
+//import Tools from "@/components/sections/tools";
 import Styles from "@/components/sections/styles";
 import Features from "@/components/sections/features";
 import HeroLanding from "@/components/sections/hero-landing";
@@ -14,7 +14,7 @@ export default function IndexPage() {
       <PreviewLanding />
       <Features />
       {/*<Powered />*/}
-      <Tools />
+      {/*<Tools />*/}
       <Benefits />
       {/* <InfoLanding data={infos[1]} /> */}
       <Styles />

@@ -22,9 +22,9 @@ interface PricingCardsProps {
 
 export function PricingCards({ userId, subscriptionPlan }: PricingCardsProps) {
   const isYearlyDefault =
-    !subscriptionPlan?.flwCustomerId || subscriptionPlan.interval === "year"
-      ? true
-      : false;
+    !subscriptionPlan?.flwCustomerId || subscriptionPlan.interval === "month"
+      ? false
+      : true;
   const [isYearly, setIsYearly] = useState<boolean>(!!isYearlyDefault);
   const { setShowSignInModal } = useContext(ModalContext);
 

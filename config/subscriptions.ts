@@ -6,7 +6,7 @@ export const pricingData: SubscriptionPlan[] = [
     title: "Free",
     description: "For Beginners",
     benefits: [
-      "Up to 5 renders",
+      "Up to 10 renders",
       "Custom prompts",
       "No watermark",
       "Commercial use",

@@ -4,6 +4,7 @@ export type FlutterwaveConfig = {
   amount: number;
   currency: string;
   redirect_url: string;
+  session_duration: number;
   payment_options: string;
   customer: {
     email: string;
@@ -40,9 +41,47 @@ export async function createPaymentLink(payload: any) {
 export async function verifyTransaction(transactionId: string) {
   const response = await fetch(`${FLW_BASE_URL}/transactions/${transactionId}/verify`, {
     headers: {
-      'Authorization': `Bearer ${FLW_SECRET_KEY}`,
+      Authorization: `Bearer ${FLW_SECRET_KEY}`,
+      "Content-Type": "application/json",
     },
   });
 
-  return response.json();
+  if (!response.ok) {
+    throw new Error(`Transaction verification failed: ${response.statusText}`);
+  }
+
+  const verifyData = await response.json();
+
+  // Validate the response structure
+  if (!verifyData.status || !verifyData.data) {
+    throw new Error("Invalid verification response format");
+  }
+
+  return verifyData;
 }
+
+export async function cancelSubscription(subscriptionId) {
+  const response = await fetch(`${FLW_BASE_URL}/subscriptions/${subscriptionId}/cancel`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${FLW_SECRET_KEY}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Subscription cancellation failed: ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  
+  if (data.status !== 'success') {
+    throw new Error(data.message || 'Failed to cancel subscription');
+  }
+
+  return data;
+}
+
+
+
+

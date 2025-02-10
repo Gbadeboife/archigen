@@ -92,5 +92,6 @@
 }
 
 .link-gradient_indigo-purple {
+  color: white;
   background: linear-gradient(90deg, #6366f1 0%, rgb(168 85 247 / 0.8) 100%);
 }

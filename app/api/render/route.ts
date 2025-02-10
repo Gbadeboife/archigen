@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server"
+import { auth } from "@/auth";
+import { prisma } from '@/lib/db'
 
 async function getLatestModelVersion(modelOwner: string, modelName: string) {
   const response = await fetch(`https://api.replicate.com/v1/models/${modelOwner}/${modelName}`, {
@@ -74,11 +76,41 @@ async function upscaleImage(image: string, prompt: string) {
   throw new Error("Operation timed out after 60 seconds")
 }
 
-export const runtime = 'edge' // Add edge runtime
+export const runtime = 'nodejs' // Add edge runtime
 export const maxDuration = 300 // 5 minutes timeout
 
 export async function POST(req: Request) {
   try {
+    const session = await auth()
+    
+    if (!session?.user?.email) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      )
+    }
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: session.user.email
+      }
+    })
+
+    if (!user) {
+      return NextResponse.json(
+        { error: 'User not found' },
+        { status: 404 }
+      )
+    }
+
+    // Check render limits for free users
+    if (!user.flwSubscriptionId && (user.renderCount || 0) >= 10) {
+      return NextResponse.json(
+        { error: 'Render limit reached, upgrade to pro' },
+        { status: 403 }
+      )
+    }
+
     const body = await req.json()
     const { image, prompt, style, category, numberOfOutputs, renderQuality } = body
 
@@ -134,12 +166,30 @@ export async function POST(req: Request) {
           if (renderQuality === "best") {
             try {
               const upscaledImages = await upscaleImage(renderedImage, prompt)
+              // Update render count for free users
+              if (!user.flwSubscriptionId) {
+                await prisma.user.update({
+                  where: { email: session.user.email },
+                  data: {
+                    renderCount: (user.renderCount || 0) + 1
+                  }
+                })
+              }
               return NextResponse.json({ images: upscaledImages })
             } catch (upscaleError) {
               console.error("Upscaling failed, returning original image:", upscaleError)
               return NextResponse.json({ images: [renderedImage] })
             }
           } else {
+            // Update render count for free users
+            if (!user.flwSubscriptionId) {
+              await prisma.user.update({
+                where: { email: session.user.email },
+                data: {
+                  renderCount: (user.renderCount || 0) + 1
+                }
+              })
+            }
             return NextResponse.json({ images: [renderedImage] })
           }
         } else {

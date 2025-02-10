@@ -15,7 +15,6 @@ export type PaymentResponse = {
 };
 
 const billingUrl = absoluteUrl("/pricing");
-const callbackUrl = absoluteUrl("/api/webhooks/flutterwave/callback");
 const dashboardUrl = absoluteUrl("/dashboard");
 
 export async function generatePaymentSession(
@@ -24,7 +23,7 @@ export async function generatePaymentSession(
   planType: "monthly" | "yearly"
 ): Promise<PaymentResponse> {  // Change return type to PaymentResponse
   try {
-    const session = await auth();
+    const session = await auth(); 
     const user = session?.user;
 
     if (!user || !user.email || !user.id) {
@@ -39,10 +38,11 @@ export async function generatePaymentSession(
 
     const flutterwaveConfig: FlutterwaveConfig = {
       public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY!,
-      tx_ref: `sub_${Date.now()}`,
+      tx_ref: `sub_${user.id}`,  // Changed from Date.now() to user.id
       amount,
       currency: "USD",
-      redirect_url: callbackUrl,
+      redirect_url: billingUrl,
+      session_duration: 120,
       payment_options: "card",
       customer: {
         email: user.email,

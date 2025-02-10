@@ -82,10 +82,19 @@ export async function getUserSubscriptionPlan(userId: string) {
   if (!user) throw new Error("User not found");
 
   const isPaid = user.subscriptionPeriodEnd?.getTime() ?? 0 > Date.now();
+  
+  const interval = isPaid
+    ? user.flwPlanId === process.env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID
+      ? "month"
+      : user.flwPlanId === process.env.NEXT_PUBLIC_FLW_PRO_YEARLY_PLAN_ID
+      ? "year"
+      : null
+    : null;
 
   return {
     ...user,
     isPaid,
+    interval,
     isCanceled: !user.flwSubscriptionId,
   };
 }

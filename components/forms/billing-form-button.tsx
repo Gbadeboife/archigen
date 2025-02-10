@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Icons } from "@/components/shared/icons";
 import { generatePaymentSession } from "@/actions/generate-payment-session";
 import { toast } from "@/components/ui/use-toast";
+import { cancelSubscriptionAction } from "@/actions/cancel-subscription";
+
 
 interface BillingFormButtonProps {
   offer: SubscriptionPlan;
@@ -20,17 +22,51 @@ export function BillingFormButton({
 }: BillingFormButtonProps) {
   let [isPending, startTransition] = useTransition();
 
-  const handlePayment = async () => {
-    try {
-      const amount = year ? offer.prices.yearly : offer.prices.monthly;
-      const planType = year ? "yearly" : "monthly";
-      
-      const response = await generatePaymentSession(amount, offer.title, planType);
+  // Check if user has pro subscription and current offer is free plan
+  const hasProSubscription = subscriptionPlan.flwPlanId !== null;
+  const isFreePlan = offer.title.toLowerCase() === "free";
 
-      if (response.status === "success" && response.data?.link) {
-        window.location.href = response.data.link;
+  // Don't render button if user has pro subscription and this is free plan
+  if (isFreePlan) {
+    return null;
+  }
+
+  const handleSubscription = async () => {
+    try {
+      if (userOffer) {
+        // Handle cancellation using the server action
+        startTransition(async () => {
+          try {
+            const response = await cancelSubscriptionAction(subscriptionPlan.flwSubscriptionId);
+            if (response.status === "success") {
+              toast({
+                title: "Success",
+                description: "Your subscription has been cancelled",
+              });
+              window.location.reload();
+            } else {
+              throw new Error(response.message);
+            }
+          } catch (error) {
+            toast({
+              title: "Error",
+              description: error instanceof Error ? error.message : "Failed to cancel subscription",
+              variant: "destructive",
+            });
+          }
+        });
       } else {
-        throw new Error(response.message || "Payment initialization failed");
+        // Handle new subscription
+        const amount = year ? offer.prices.yearly : offer.prices.monthly;
+        const planType = year ? "yearly" : "monthly";
+        
+        const response = await generatePaymentSession(amount, offer.title, planType);
+
+        if (response.status === "success" && response.data?.link) {
+          window.location.href = response.data.link;
+        } else {
+          throw new Error(response.message || "Payment initialization failed");
+        }
       }
     } catch (error) {
       console.error("Payment error details:", {
@@ -57,14 +93,14 @@ export function BillingFormButton({
       rounded="full"
       className="w-full"
       disabled={isPending}
-      onClick={() => startTransition(handlePayment)}
+      onClick={() => startTransition(handleSubscription)}
     >
       {isPending ? (
         <>
           <Icons.spinner className="mr-2 size-4 animate-spin" /> Loading...
         </>
       ) : (
-        <>{userOffer ? "Manage Subscription" : "Upgrade"}</>
+        <>{userOffer ? "Cancel Subscription" : "Upgrade"}</>
       )}
     </Button>
   );

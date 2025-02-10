@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Image from "next/image"
 import { useDropzone } from "react-dropzone"
 import { Input } from "@/components/ui/input"
@@ -29,26 +29,24 @@ export default function Renderer() {
   const [isLoading, setIsLoading] = useState(false)
   const [isGeneratingPrompt, setIsGeneratingPrompt] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [renderCount, setRenderCount] = useState<number>(0)
+  const [isSubscribed, setIsSubscribed] = useState<boolean>(false)
+  const MAX_FREE_RENDERS = 10
 
-  {/*const renderStyles = [
-    {
-      name: "Photorealistic",
-      image: "/placeholder.svg?height=100&width=100",
-      description: "Highly detailed and lifelike",
-    },
-    {
-      name: "Sketch",
-      image: "/placeholder.svg?height=100&width=100",
-      description: "Hand-drawn architectural sketch style",
-    },
-    {
-      name: "Watercolor",
-      image: "/placeholder.svg?height=100&width=100",
-      description: "Soft, artistic watercolor rendering",
-    },
-    { name: "Blueprint", image: "/placeholder.svg?height=100&width=100", description: "Technical blueprint style" },
-  ]*/}
-
+  useEffect(() => {
+    // Fetch user's render count and subscription status on component mount
+    const fetchUserStatus = async () => {
+      try {
+        const response = await fetch('/api/user/render-status')
+        const data = await response.json()
+        setRenderCount(data.renderCount)
+        setIsSubscribed(data.isSubscribed)
+      } catch (err) {
+        console.error('Failed to fetch user status:', err)
+      }
+    }
+    fetchUserStatus()
+  }, [])
 
   const categories = ["interior", "exterior", "sketch"]
   const outputOptions = [1]
@@ -108,6 +106,11 @@ export default function Renderer() {
       return
     }
 
+    if (!isSubscribed && renderCount >= MAX_FREE_RENDERS) {
+      setError("You've reached the maximum number of free renders. Please upgrade to pro to continue.")
+      return
+    }
+
     setIsLoading(true)
     setError(null)
 
@@ -127,9 +130,14 @@ export default function Renderer() {
         }),
       })
       const data = await response.json()
-      console.log(data)
+      
       if (!response.ok) {
         throw new Error(data.error || "Failed to render image")
+      }
+
+      // Update render count after successful render
+      if (!isSubscribed) {
+        setRenderCount(prev => prev + 1)
       }
 
       if (Array.isArray(data.images) && data.images.length > 0) {
@@ -139,7 +147,7 @@ export default function Renderer() {
         throw new Error("No images were generated")
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "An unexpected error occurred while rendering. Please try again.")
+      setError(/*err instanceof Error ? err.message :*/"An unexpected error occurred while rendering. Please try again.")
       console.error(err)
     } finally {
       setIsLoading(false)
@@ -166,6 +174,11 @@ export default function Renderer() {
 
   return (
     <div className="m-auto w-full p-4">
+      {/*!isSubscribed && (
+        <div className="mb-4 text-sm">
+          {renderCount}/{MAX_FREE_RENDERS} free renders remaining
+        </div>
+      )*/}
       <div className="flex min-h-screen flex-col gap-6 lg:flex-row">
         <div className="relative w-full lg:flex-[1]">
           <div className="max-h-[calc(100vh-2rem)] space-y-6 overflow-y-auto pb-20">
@@ -204,13 +217,13 @@ export default function Renderer() {
                   className="text-sm"
                   onChange={(e) => setPrompt(e.target.value)}
                 />
-                {/*<Button
+                <Button
                   className="mt-4 w-full"
                   onClick={handleGenerateWithAI}
                   disabled={isGeneratingPrompt || !uploadedImage}
                 >
                   {isGeneratingPrompt ? <LoadingSpinner /> : "Generate with AI"}
-                </Button>*/}
+                </Button>
               </CardContent>
             </Card>
 
@@ -278,10 +291,10 @@ export default function Renderer() {
 
         </div>
 
-        <div className="w-full lg:w-auto lg:flex-[2]">
+        <div className="w-full  lg:w-auto lg:flex-[2]">
           <Card className="h-auto">
             <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
-              {error && <div className="mb-4 text-red-500">{error}</div>}
+              {error && <div className="mb-4 text-red-500 text-center">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (
                 <>
                   <div className="mb-4 grid grid-cols-4 gap-2">
