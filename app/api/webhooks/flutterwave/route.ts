@@ -88,7 +88,7 @@ export async function POST(req: Request) {
         data: {
           subscriptionPeriodEnd: subscriptionEnd,
           flwCustomerId: `${customer.id}`,
-          flwSubscriptionId: data.id,
+          flwSubscriptionId: `${data.id}`,
           flwPlanId: meta?.planType === 'monthly' 
           ? process.env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID 
           : meta?.planType === 'yearly' 
