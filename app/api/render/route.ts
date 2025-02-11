@@ -115,7 +115,7 @@ export async function POST(req: Request) {
     const { image, isUrl, prompt, style, category, numberOfOutputs, renderQuality } = body
 
     // Fetch the latest version for the rendering model
-    const latestRenderVersion = await getLatestModelVersion("lucataco", "sdxl-controlnet")
+    const latestRenderVersion = await getLatestModelVersion("batouresearch", "sdxl-controlnet-lora" /*"lucataco", "sdxl-controlnet"*/)
 
     // Use image directly if it's a URL, otherwise use the base64 image
     const imageInput = isUrl ? image : image
@@ -131,7 +131,9 @@ export async function POST(req: Request) {
         version: latestRenderVersion,
         input: {
           image: imageInput,
-          prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
+          prompt: style !== null ? `${style} style, ${prompt}`: prompt,
+          img2img: true,
+          
         },
       }),
     })

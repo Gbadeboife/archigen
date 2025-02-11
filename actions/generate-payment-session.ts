@@ -38,7 +38,7 @@ export async function generatePaymentSession(
 
     const flutterwaveConfig: FlutterwaveConfig = {
       public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY!,
-      tx_ref: `sub_${user.id}`,  // Changed from Date.now() to user.id
+      tx_ref: `sub_${Date.now()}`,  // Changed back to Date.now()
       amount,
       currency: "USD",
       redirect_url: billingUrl,
