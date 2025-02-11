@@ -32,6 +32,7 @@ export function ImageDropzone({ onDrop, uploadedImage }: ImageDropzoneProps) {
             layout="fill"
             objectFit="contain"
             className="rounded-lg"
+            
           />
         </div>
       ) : (
