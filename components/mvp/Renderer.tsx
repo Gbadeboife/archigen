@@ -65,8 +65,6 @@ export default function Renderer() {
           const dataUrl = e.target?.result as string
           setUploadedImage(dataUrl)
         }
-        reader.readAsDataURL(file)
-
         const response = await fetch('/api/upload', {
           method: 'POST',
           body: formData
@@ -74,11 +72,12 @@ export default function Renderer() {
         
         if (!response.ok) {
           setUploadedImage(null)
-          throw new Error('Image upload failed, try again')
+          setError('Image upload failed, try again')
+          throw new Error('Upload failed')
         }
         
         const { url } = await response.json()
-        setImageUrl(url)
+        setUploadedRepImage(url)
       } catch (error) {
         console.error('Error uploading to blob:', error)
         setError('Failed to upload image')
@@ -98,7 +97,7 @@ export default function Renderer() {
     }
   }, [])
 
-  /*const handleGenerateWithAI = async () => {
+  const handleGenerateWithAI = async () => {
     if (!uploadedImage) {
       setError("Please upload an image first.")
       return
@@ -130,7 +129,7 @@ export default function Renderer() {
     } finally {
       setIsGeneratingPrompt(false)
     }
-  }*/
+  }
 
   const handleRender = async () => {
     if (!uploadedRepImage && !imageUrl) {
