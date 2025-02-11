@@ -65,6 +65,8 @@ export default function Renderer() {
           const dataUrl = e.target?.result as string
           setUploadedImage(dataUrl)
         }
+        reader.readAsDataURL(file)
+
         const response = await fetch('/api/upload', {
           method: 'POST',
           body: formData
