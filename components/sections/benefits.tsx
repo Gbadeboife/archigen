@@ -72,10 +72,10 @@ export default function Benefits() {
         </div>
         <div
           className= "overflow-hidden rounded-xl border lg:-m-4">
-          <div className="">
+          <div className="aspect-video">
             <Image
               src={data.image}
-              alt="Exterior Rendering Example"
+              alt="Exterior Rendering"
               width={400}
               height={300}
               className="size-full rounded-lg shadow-lg"
