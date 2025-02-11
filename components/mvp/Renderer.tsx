@@ -91,7 +91,7 @@ export default function Renderer() {
     }
   }, [])
 
-  const handleGenerateWithAI = async () => {
+  /*const handleGenerateWithAI = async () => {
     if (!uploadedImage) {
       setError("Please upload an image first.")
       return
@@ -123,7 +123,7 @@ export default function Renderer() {
     } finally {
       setIsGeneratingPrompt(false)
     }
-  }
+  }*/
 
   const handleRender = async () => {
     if (!uploadedRepImage && !imageUrl) {

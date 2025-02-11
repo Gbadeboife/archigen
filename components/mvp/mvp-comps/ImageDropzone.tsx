@@ -27,11 +27,12 @@ export function ImageDropzone({ onDrop, uploadedImage }: ImageDropzoneProps) {
       {uploadedImage ? (
         <div className="relative aspect-square w-full">
           <Image
-            src={uploadedImage || "/placeholder.svg"}
+            src={uploadedImage}
             alt="Uploaded image"
             layout="fill"
             objectFit="contain"
             className="rounded-lg"
+            unoptimized={true}
           />
         </div>
       ) : (
