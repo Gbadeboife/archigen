@@ -8,9 +8,9 @@ export const pricingData: SubscriptionPlan[] = [
     benefits: [
       "Up to 10 renders",
       "Custom prompts",
-      "No watermark",
       "Commercial use",
-      "Basic quality renders",
+      "No watermark",
+      /*"Basic quality renders",*/
     ],
     limitations: [
       "No priority access to new features.",
@@ -36,7 +36,7 @@ export const pricingData: SubscriptionPlan[] = [
       "Custom prompts",
       "Commercial use",
       "No watermark",
-      "High resolution renders",
+      /*"High resolution renders",*/
       "Early access to new features",
     ],
     limitations: [
