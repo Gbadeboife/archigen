@@ -61,17 +61,24 @@ export default function Renderer() {
         const formData = new FormData()
         formData.append('file', file)
         
+        reader.onload = (e) => {
+          const dataUrl = e.target?.result as string
+          setUploadedImage(dataUrl)
+        }
+        reader.readAsDataURL(file)
+
         const response = await fetch('/api/upload', {
           method: 'POST',
           body: formData
         })
         
-        if (!response.ok) throw new Error('Upload failed')
+        if (!response.ok) {
+          setUploadedImage(null)
+          throw new Error('Image upload failed, try again')
+        }
         
         const { url } = await response.json()
         setImageUrl(url)
-        setUploadedImage(url)
-        setUploadedRepImage(url)
       } catch (error) {
         console.error('Error uploading to blob:', error)
         setError('Failed to upload image')
