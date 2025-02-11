@@ -322,7 +322,6 @@ export default function Renderer() {
               </Button>
             </div>
           </div>
-
         </div>
 
         <div className="w-full lg:w-auto lg:flex-[2]">
