@@ -8,13 +8,13 @@ import MaxWidthWrapper from "@/components/shared/max-width-wrapper";
 
 export default function Styles() {
   return (
-    <section>
+    <section id="styles">
       <div className="pb-6 pt-28">
         <MaxWidthWrapper>
 
           <HeaderSection
           label="Styles"
-          title="Choose from 10+ design styles."
+          title="Choose from 8+ design styles."
           subtitle="Explore our curated collection of preset architectural styles for instant design transformations."
           />
 

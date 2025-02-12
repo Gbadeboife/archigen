@@ -51,7 +51,7 @@ export async function generatePaymentSession(
       customizations: {
         title: `ArchiGen ${planTitle} Subscription`,
         description: `${planType} subscription to ${planTitle}`,
-        logo: "/logo.png",
+        logo: "/_static/logo.jpg",
       },
       meta: {
         userId: user.id,

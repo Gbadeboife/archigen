@@ -89,12 +89,12 @@ export const styles: StylesLdg[] = [
       "Explores cutting-edge technology, sleek, and unconventional forms, to envision forward-thinking and visionary spaces.",
     image: "st-futuristic.jpg",
   },
-  {
+  /*{
     title: "Traditional",
     description:
       "Draws inspiration from historical precedents, employing classic proportions to evoke a sense of timelessness.",
     image: "st-traditional.jpg",
-  },
+  }*/
   {
     title: "International Style",
     description:
