@@ -111,7 +111,7 @@ export function NavBar({ scroll = false }: NavBarProps) {
                 size="sm"
                 rounded="full"
               >
-                <span>Get started</span>
+                <span>Start Rendering</span>
               </Button>
             </Link>
           ) : status === "unauthenticated" ? (

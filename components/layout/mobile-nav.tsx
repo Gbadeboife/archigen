@@ -91,7 +91,7 @@ export function NavMobile() {
                   onClick={() => setOpen(false)}
                   className="flex w-full font-medium capitalize"
                 >
-                  Get started
+                  Start Rendering
                 </Link>
               </li>}
 
