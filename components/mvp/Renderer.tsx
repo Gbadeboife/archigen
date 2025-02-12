@@ -308,7 +308,7 @@ export default function Renderer() {
                 </div>
               </CardContent>
             </Card>
-            <div className="fixed bottom-4 left-0 w-full rounded-lg bg-background px-4 lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)] lg:px-0">
+            <div className="fixed bottom-4  left-0 px-4 lg:px-0 w-full rounded-lg bg-background lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)]">
               <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
                 {isLoading ? <LoadingSpinner /> : "Render"}
               </Button>
@@ -319,7 +319,7 @@ export default function Renderer() {
 
         <div className="w-full  lg:w-auto lg:flex-[2]">
           <Card className="h-auto">
-            <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
+            <CardContent className="mb-12 flex h-screen flex-col p-3 md:p-6 lg:mb-0">
               {error && <div className="mb-4 text-center text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (
                 <>

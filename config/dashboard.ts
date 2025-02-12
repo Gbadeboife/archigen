@@ -6,7 +6,7 @@ export const sidebarLinks: SidebarNavItem[] = [
   {
     title: "MENU",
     items: [
-      {
+      /*{
         href: "/admin",
         icon: "laptop",
         title: "Admin Panel",
@@ -33,7 +33,7 @@ export const sidebarLinks: SidebarNavItem[] = [
         title: "User Posts",
         authorizeOnly: UserRole.USER,
         disabled: true,
-      },
+      },*/
     ],
   },
   {
