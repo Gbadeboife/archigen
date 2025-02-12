@@ -308,7 +308,7 @@ export default function Renderer() {
                 </div>
               </CardContent>
             </Card>
-            <div className="fixed bottom-4 left-0 w-full rounded-lg border bg-background px-4 lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)] lg:px-0">
+            <div className="fixed bottom-4 left-0 w-full rounded-lg bg-background px-4 lg:left-auto lg:right-[calc(66.666667%+1rem)] lg:w-[calc(33.333333%-2rem)] lg:px-0">
               <Button className="w-full" size="lg" onClick={handleRender} disabled={isLoading || !uploadedImage}>
                 {isLoading ? <LoadingSpinner /> : "Render"}
               </Button>
