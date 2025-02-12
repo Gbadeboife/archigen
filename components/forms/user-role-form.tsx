@@ -65,7 +65,7 @@ export function UserRoleForm({ user }: UserNameFormProps) {
     });
   };
 
-  return (
+  /*return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <SectionColumns
@@ -130,5 +130,5 @@ export function UserRoleForm({ user }: UserNameFormProps) {
         </SectionColumns>
       </form>
     </Form>
-  );
+  );*/
 }

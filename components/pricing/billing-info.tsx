@@ -23,6 +23,7 @@ export function BillingInfo({ userSubscriptionPlan }: BillingInfoProps) {
     title,
     description,
     flwCustomerId,
+    flwPlanId,
     isPaid,
     isCanceled,
     subscriptionPeriodEnd,
@@ -33,7 +34,9 @@ export function BillingInfo({ userSubscriptionPlan }: BillingInfoProps) {
       <CardHeader>
         <CardTitle>Subscription Plan</CardTitle>
         <CardDescription>
-          You are currently on the <strong>{title}</strong> plan.
+          You are currently on the <strong>{flwPlanId === process.env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID?
+          "Pro" : "Free" 
+         }</strong> plan.
         </CardDescription>
       </CardHeader>
       <CardContent>{description}</CardContent>
@@ -47,13 +50,12 @@ export function BillingInfo({ userSubscriptionPlan }: BillingInfoProps) {
           </p>
         ) : null}
 
-        {isPaid && flwCustomerId ? (
-          <CustomerPortalButton userStripeId={flwCustomerId} />
-        ) : (
-          <Link href="/pricing" className={cn(buttonVariants())}>
-            Choose a plan
-          </Link>
-        )}
+        
+          
+        <Link href="/pricing" className={cn(buttonVariants())}>
+          {isPaid && flwCustomerId ? "Manage subscription" : "Upgrade plan"}
+        </Link>
+        
       </CardFooter>
     </Card>
   );
