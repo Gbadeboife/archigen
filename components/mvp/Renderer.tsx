@@ -61,24 +61,16 @@ export default function Renderer() {
         const formData = new FormData()
         formData.append('file', file)
         
-        reader.onload = (e) => {
-          const dataUrl = e.target?.result as string
-          setUploadedImage(dataUrl)
-        }
-        reader.readAsDataURL(file)
-
         const response = await fetch('/api/upload', {
           method: 'POST',
           body: formData
         })
         
-        if (!response.ok) {
-          setUploadedImage(null)
-          setError('Image upload failed, try again')
-          throw new Error('Upload failed')
-        }
+        if (!response.ok) throw new Error('Upload failed')
         
         const { url } = await response.json()
+        setImageUrl(url)
+        setUploadedImage(url)
         setUploadedRepImage(url)
       } catch (error) {
         console.error('Error uploading to blob:', error)
@@ -322,10 +314,11 @@ export default function Renderer() {
               </Button>
             </div>
           </div>
+
         </div>
 
-        <div className="w-full lg:w-auto lg:flex-[2]">
-          <Card className="h-full">
+        <div className="w-full  lg:w-auto lg:flex-[2]">
+          <Card className="h-auto">
             <CardContent className="mb-12 flex h-full flex-col p-3 md:p-6 lg:mb-0">
               {error && <div className="mb-4 text-center text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (

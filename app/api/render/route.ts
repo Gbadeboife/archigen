@@ -131,7 +131,7 @@ export async function POST(req: Request) {
         version: latestRenderVersion,
         input: {
           image: imageInput,
-          prompt: style !== null ? `${style} style, ${prompt}`: prompt,
+          prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
         },
       }),
     })

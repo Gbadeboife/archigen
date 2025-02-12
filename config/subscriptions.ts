@@ -10,7 +10,7 @@ export const pricingData: SubscriptionPlan[] = [
       "Custom prompts",
       "Commercial use",
       "No watermark",
-      /*"Basic quality renders",*/
+      "Basic quality renders",
     ],
     limitations: [
       "No priority access to new features.",
@@ -36,7 +36,7 @@ export const pricingData: SubscriptionPlan[] = [
       "Custom prompts",
       "Commercial use",
       "No watermark",
-      /*"High resolution renders",*/
+      "High resolution renders",
       "Early access to new features",
     ],
     limitations: [
@@ -44,8 +44,8 @@ export const pricingData: SubscriptionPlan[] = [
       "Limited access to business resources.",*/
     ],
     prices: {
-      monthly: 20,
-      yearly: 192,
+      monthly: 15,
+      yearly: 144,
     },
     flwIds: {
       monthly: env.NEXT_PUBLIC_FLW_PRO_MONTHLY_PLAN_ID,
