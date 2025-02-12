@@ -75,7 +75,7 @@ export default function Benefits() {
           <div className="aspect-video">
             <Image
               src={data.image}
-              alt="Exterior Rendering"
+              alt="Render sample"
               width={400}
               height={300}
               className="size-full rounded-lg shadow-lg"
