@@ -19,7 +19,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import ProjectSwitcher from "@/components/dashboard/project-switcher";
+//import ProjectSwitcher from "@/components/dashboard/project-switcher";
 //import { UpgradeCard } from "@/components/dashboard/upgrade-card";
 import { Icons } from "@/components/shared/icons";
 
@@ -72,7 +72,7 @@ export function DashboardSidebar({ links }: DashboardSidebarProps) {
           >
             <div className="flex h-full max-h-screen flex-1 flex-col gap-2">
               <div className="flex h-14 items-center p-4 lg:h-[60px]">
-                {isSidebarExpanded ? <ProjectSwitcher /> : null}
+                {/*isSidebarExpanded ? <ProjectSwitcher /> : null*/}
 
                 <Button
                   variant="ghost"
@@ -210,7 +210,7 @@ export function MobileSheetSidebar({ links }: DashboardSidebarProps) {
                   </span>
                 </Link>
 
-                <ProjectSwitcher large />
+                {/*<ProjectSwitcher large />*/}
 
                 {links.map((section) => (
                   <section
