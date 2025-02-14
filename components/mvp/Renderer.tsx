@@ -324,7 +324,7 @@ export default function Renderer() {
 
         <div className="w-full  lg:w-auto lg:flex-[2]">
           <Card className="h-auto">
-            <CardContent className="mb-12 flex h-screen flex-col p-3 md:p-6 lg:mb-0">
+            <CardContent className="mb-12 flex min-h-screen flex-col p-3 md:p-6 lg:mb-0">
               {error && <div className="mb-4 text-center text-red-500">{error}</div>}
               {Array.isArray(renderedImages) && renderedImages.length > 0 ? (
                 <>
