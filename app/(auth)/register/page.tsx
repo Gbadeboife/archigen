@@ -7,7 +7,7 @@ import { UserAuthForm } from "@/components/forms/user-auth-form"
 import { Suspense } from "react"
 
 export const metadata = {
-  title: "Create an account",
+  title: "Create an account - ArchiGen",
   description: "Create an account to get started.",
 }
 
