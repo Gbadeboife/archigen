@@ -8,7 +8,7 @@ import { PricingCards } from "@/components/pricing/pricing-cards";
 import { PricingFaq } from "@/components/pricing/pricing-faq";
 
 export const metadata = constructMetadata({
-  title: "Pricing – Generate Photorealistic Architecture Renders in Seconds Using AI | ArchiGen",
+  title: "Pricing – Generate Photorealistic Architecture AI Renders in Seconds | ArchiGen",
   description: "Explore our subscription plans.",
 });
 
