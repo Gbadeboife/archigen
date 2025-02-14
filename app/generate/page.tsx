@@ -4,6 +4,15 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { constructMetadata } from "@/lib/utils";
+
+
+
+export const metadata = constructMetadata({
+  title: "Generate – Generate Photorealistic Architecture Renders in Seconds Using AI | ArchiGen",
+  description: "Explore our subscription plans.",
+});
+
 
 export default async function Generate() {
     const session = await auth();

@@ -120,55 +120,77 @@ export async function POST(req: Request) {
     // Use image directly if it's a URL, otherwise use the base64 image
     const imageInput = isUrl ? image : image
 
-    // Render the images
-    const renderResponse = await fetch("https://api.replicate.com/v1/predictions", {
-      method: "POST",
-      headers: {
-        Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        version: latestRenderVersion,
-        input: {
-          image: imageInput,
-          prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
-        },
-      }),
-    })
+    // Create multiple predictions based on numberOfOutputs
+    const predictions = await Promise.all(
+      Array(numberOfOutputs).fill(null).map(async () => {
+        const renderResponse = await fetch("https://api.replicate.com/v1/predictions", {
+          method: "POST",
+          headers: {
+            Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            version: latestRenderVersion,
+            input: {
+              image: imageInput,
+              prompt: style !== '' ? `${style} style, ${prompt}`: prompt,
+            },
+          }),
+        })
 
-    if (!renderResponse.ok) {
-      const errorData = await renderResponse.json()
-      throw new Error(`Failed to render image: ${errorData.detail || "Unknown error"}`)
-    }
+        if (!renderResponse.ok) {
+          const errorData = await renderResponse.json()
+          throw new Error(`Failed to render image: ${errorData.detail || "Unknown error"}`)
+        }
 
-    const renderPrediction = await renderResponse.json()
-
-    let renderedImage
-
-    let attempts = 0;
-    const maxAttempts = 180; // 3 minutes maximum waiting time
-
-    // Poll for render results
-    while (attempts < maxAttempts) {
-      const statusResponse = await fetch(`https://api.replicate.com/v1/predictions/${renderPrediction.id}`, {
-        headers: {
-          Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
-        },
+        return renderResponse.json()
       })
+    )
 
-      if (!statusResponse.ok) {
-        throw new Error(`Failed to check prediction status: ${statusResponse.statusText}`)
-      }
+    let renderedImages: any[] = []
+    let attempts = 0
+    const maxAttempts = 180 // 3 minutes maximum waiting time
 
-      const status = await statusResponse.json()
+    // Poll for all render results
+    while (attempts < maxAttempts) {
+      const statusResponses = await Promise.all(
+        predictions.map(prediction =>
+          fetch(`https://api.replicate.com/v1/predictions/${prediction.id}`, {
+            headers: {
+              Authorization: `Token ${process.env.REPLICATE_API_KEY}`,
+            },
+          })
+        )
+      )
 
-      if (status.status === "succeeded") {
-        renderedImage = status.output
+      const statuses = await Promise.all(
+        statusResponses.map(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to check prediction status: ${response.statusText}`)
+          }
+          return response.json()
+        })
+      )
 
-        if (renderedImage /*&& renderedImages.length > 0*/) {
+      // Check if all predictions are complete
+      const allComplete = statuses.every(status => 
+        status.status === "succeeded" || status.status === "failed"
+      )
+      
+      if (allComplete) {
+        // Collect successful outputs
+        renderedImages = statuses
+          .filter(status => status.status === "succeeded")
+          .map(status => status.output)
+          .filter(Boolean)
+
+        if (renderedImages.length > 0) {
           if (renderQuality === "best") {
             try {
-              const upscaledImages = await upscaleImage(renderedImage, prompt)
+              // Upscale all images
+              const upscaledImages = await Promise.all(
+                renderedImages.map(img => upscaleImage(img, prompt))
+              )
               // Update render count for free users
               if (!user.flwSubscriptionId) {
                 await prisma.user.update({
@@ -178,10 +200,10 @@ export async function POST(req: Request) {
                   }
                 })
               }
-              return NextResponse.json({ images: upscaledImages })
+              return NextResponse.json({ images: upscaledImages.flat() })
             } catch (upscaleError) {
-              console.error("Upscaling failed, returning original image:", upscaleError)
-              return NextResponse.json({ images: [renderedImage] })
+              console.error("Upscaling failed, returning original images:", upscaleError)
+              return NextResponse.json({ images: renderedImages })
             }
           } else {
             // Update render count for free users
@@ -193,13 +215,11 @@ export async function POST(req: Request) {
                 }
               })
             }
-            return NextResponse.json({ images: [renderedImage] })
+            return NextResponse.json({ images: renderedImages })
           }
         } else {
           throw new Error("No images were generated")
         }
-      } else if (status.status === "failed") {
-        throw new Error(`Rendering failed: ${status.error || "Unknown error"}`)
       }
 
       attempts++
@@ -213,7 +233,7 @@ export async function POST(req: Request) {
       JSON.stringify({
         error: error instanceof Error ? error.message : "An unexpected error occurred while rendering and upscaling"
       }),
-      {
+      { 
         status: 500,
         headers: {
           'Content-Type': 'application/json',
@@ -222,4 +242,3 @@ export async function POST(req: Request) {
     )
   }
 }
-

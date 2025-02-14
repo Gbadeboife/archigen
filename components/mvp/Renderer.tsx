@@ -50,7 +50,7 @@ export default function Renderer() {
   }, [])
 
   const categories = ["interior", "exterior", "sketch"]
-  const outputOptions = [1]
+  const outputOptions = [1, 2, 4]
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
@@ -282,8 +282,11 @@ export default function Renderer() {
                           key={num}
                           onClick={() => setSettings({ ...settings, numberOfOutputs: num })}
                           variant={settings.numberOfOutputs === num ? "default" : "outline"}
+                          disabled={num === 4 && !isSubscribed}
+                          title={num === 4 && !isSubscribed ? "Pro users only" : ""}
                         >
                           {num}
+                          {num === 4 && !isSubscribed && " (Pro)"}
                         </Button>
                       ))}
                     </div>
@@ -300,8 +303,10 @@ export default function Renderer() {
                       <Button
                         onClick={() => setSettings({ ...settings, renderQuality: "best" })}
                         variant={settings.renderQuality === "best" ? "default" : "outline"}
+                        disabled={!isSubscribed}
+                        title={!isSubscribed ? "Pro users only" : ""}
                       >
-                        Best Quality
+                        Best Quality {!isSubscribed && "(Pro)"}
                       </Button>
                     </div>
                   </div>
@@ -393,4 +398,3 @@ export default function Renderer() {
     </div>
   )
 }
-

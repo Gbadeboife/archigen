@@ -7,6 +7,14 @@ import Benefits from "@/components/sections/benefits";
 import PreviewLanding from "@/components/sections/preview-landing";
 //import Testimonials from "@/components/sections/testimonials";
 
+import { constructMetadata } from "@/lib/utils";
+
+
+export const metadata = constructMetadata({
+  title: "Architecture AI Rendering tools – Generate Photorealistic Architecture Renders in Seconds Using AI | ArchiGen",
+  description: "Explore our subscription plans.",
+});
+
 export default function IndexPage() {
   return (
     <>
