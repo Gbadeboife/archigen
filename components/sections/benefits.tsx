@@ -21,7 +21,7 @@ export default function Benefits() {
   const data: dataType ={
     title: "Accelerate Your Design Process with AI",
     description:
-      "Transform your workflow with AI-powered rendering that delivers stunning visuals in a fraction of the time.",
+      "Generate stunning visualizations from Sketchup, Blender, 3Ds Max and Revit models. Transform your workflow with AI-powered rendering that delivers stunning visuals in a fraction of the time.",
     image: "/_static/images/benefits.png",
     list: [
       {
