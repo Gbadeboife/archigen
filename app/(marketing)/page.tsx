@@ -11,7 +11,7 @@ import { constructMetadata } from "@/lib/utils";
 
 
 export const metadata = constructMetadata({
-  title: "Architecture AI Rendering tools – Generate Photorealistic Architecture Renders in Seconds Using AI | ArchiGen",
+  title: "Architecture AI Rendering tools – Generate Photorealistic Architecture AI Renders in Seconds - ArchiGen",
   description: "Explore our subscription plans.",
 });
 
