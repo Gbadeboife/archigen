@@ -51,7 +51,7 @@ export async function generatePaymentSession(
       customizations: {
         title: `ArchiGen ${planTitle} Subscription`,
         description: `${planType} subscription to ${planTitle}`,
-        logo: "/_static/logo.jpg",
+        logo: "https://zxsbodlyoxevsftj.public.blob.vercel-storage.com/logo-Crf35lLIDE1qr03qER6fBUAvrA7gY1.jpg",
       },
       meta: {
         userId: user.id,
