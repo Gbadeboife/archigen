@@ -97,11 +97,11 @@ export function NavMobile() {
 
               <li className="py-3">
                 <Link
-                  href="/dashboard"
+                  href="/dashboard/settings"
                   onClick={() => setOpen(false)}
                   className="flex w-full font-medium capitalize"
                 >
-                  Dashboard
+                  Settings
                 </Link>
               </li>
             </>
