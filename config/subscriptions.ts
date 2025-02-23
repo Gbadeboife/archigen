@@ -6,11 +6,11 @@ export const pricingData: SubscriptionPlan[] = [
     title: "Free",
     description: "For Beginners",
     benefits: [
-      "Up to 10 renders",
+      "Up to 10 renderings",
       "Custom prompts",
       "Commercial use",
       "No watermark",
-      "Basic quality renders",
+      "Basic quality renderings",
     ],
     limitations: [
       "No priority access to new features.",
@@ -32,11 +32,11 @@ export const pricingData: SubscriptionPlan[] = [
     title: "Pro",
     description: "Unlock Advanced Features",
     benefits: [
-      "Unlimited renders",
+      "Unlimited renderings",
       "Custom prompts",
       "Commercial use",
       "No watermark",
-      "High resolution renders",
+      "High resolution renderings",
       "Early access to new features",
     ],
     limitations: [

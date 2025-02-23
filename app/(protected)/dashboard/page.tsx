@@ -5,7 +5,7 @@ import { DashboardHeader } from "@/components/dashboard/header";
 import { EmptyPlaceholder } from "@/components/shared/empty-placeholder";
 
 export const metadata = constructMetadata({
-  title: "Dashboard  – Generate Photorealistic Architecture AI Renders in Seconds | ArchiGen",
+  title: "Dashboard  – Generate Photorealistic Architecture AI Renderings in Seconds | ArchiGen",
   description: "Create and manage content.",
 });
 

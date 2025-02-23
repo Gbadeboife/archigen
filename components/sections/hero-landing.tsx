@@ -36,7 +36,7 @@ export default async function HeroLanding() {
           className="max-w-2xl text-balance text-sm leading-normal text-muted-foreground sm:text-base sm:leading-8 md:text-base lg:text-lg"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Generate photorealistic renders in seconds.<br/>Transform ideas into reality with a click.
+          Generate photorealistic renderings in seconds.<br/>Transform ideas into reality with a click.
         </p>
 
         <div

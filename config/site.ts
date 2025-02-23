@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   name: "ArchiGen",
   logo: "/_static/logo.jpg",
   description:
-    "Generate photorealistic architecture renders in seconds using AI. No design skills required.",
+    "Generate photorealistic architecture renderings in seconds using AI. No design skills required.",
   url: site_url,
   ogImage: `${site_url}/_static/og.png`,
   links: {

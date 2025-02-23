@@ -9,7 +9,7 @@ import { BillingInfo } from "@/components/pricing/billing-info";
 import { Icons } from "@/components/shared/icons";
 
 export const metadata = constructMetadata({
-  title: "Billing  – Generate Photorealistic Architecture AI Renders in Seconds | ArchiGen",
+  title: "Billing  – Generate Photorealistic Architecture AI Renderings in Seconds | ArchiGen",
   description: "Manage billing and your subscription plan.",
 });
 

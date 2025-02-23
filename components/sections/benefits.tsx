@@ -26,7 +26,7 @@ export default function Benefits() {
     list: [
       {
         title: "Speed",
-        description: "Stop waiting for renders. Experience lightning-fast results with our AI-powered platform.",
+        description: "Stop waiting for renderings. Experience lightning-fast results with our AI-powered platform.",
         icon: "rocket",
       },
       {

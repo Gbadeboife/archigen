@@ -29,7 +29,7 @@ export default function Tools() {
     },
     {
       name: "Sketch AI",
-      description: "Transform hand-drawn or digital sketches into stunning architectural renders. Go from quick sketch to photorealistic render in seconds.",
+      description: "Transform hand-drawn or digital sketches into stunning architectural renderings. Go from quick sketch to photorealistic render in seconds.",
       image: "/placeholder.svg?height=250&width=250",
       link: "/tools/lighting-studio",
     },
@@ -41,7 +41,7 @@ export default function Tools() {
     },
     {
       name: "Upscale AI",
-      description: "Enhance the resolution and quality of your Lumion, Enscape, vray, SketchUp or Revit renders up to 4k.",
+      description: "Enhance the resolution and quality of your Lumion, Enscape, vray, SketchUp or Revit renderings up to 4k.",
       image: "/placeholder.svg?height=250&width=250",
       link: "",
     },
@@ -59,7 +59,7 @@ export default function Tools() {
     },
     {
       name: "Modify AI",
-      description: "Easily edit and refine existing renders, making quick changes and adjustments with powerful AI tools.",
+      description: "Easily edit and refine existing renderings, making quick changes and adjustments with powerful AI tools.",
       image: "/placeholder.svg?height=250&width=250",
       link: "",
     },
