@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { constructMetadata } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 
 
@@ -30,7 +31,18 @@ export default async function Generate() {
                       {siteConfig.name}
                     </span>
                 </Link>
-                <UserAccountNav/>
+                <div>
+                    <Button
+                        className="px-3 py-0 mr-3 align-top"
+                        variant="default"
+                        size="sm"
+                        rounded="full"
+                    >
+                        <Link href='/pricing' className='text-sm'>Upgrade</Link>
+                    </Button>
+                    
+                    <UserAccountNav/>
+                </div>
             </header>
 
             <Renderer />
