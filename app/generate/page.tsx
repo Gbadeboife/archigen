@@ -33,7 +33,7 @@ export default async function Generate() {
                 </Link>
                 <div>
                     <Button
-                        className="px-3 py-0 mr-3 align-top"
+                        className="mr-3 px-3 py-0 align-top"
                         variant="default"
                         size="sm"
                         rounded="full"
