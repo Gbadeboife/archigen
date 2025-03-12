@@ -37,6 +37,7 @@ export async function generateUserPayment(planId: string): Promise<void> {
       }
     };
 
+    
     const response = await createPaymentLink(payload);
     
     if (response.status !== 'success') {
