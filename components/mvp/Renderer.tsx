@@ -48,6 +48,7 @@ export default function Renderer() {
     }
     fetchUserStatus()
   }, [])
+  
 
   const categories = ["interior", "exterior", "sketch"]
   const outputOptions = [1, 2, 4]
