@@ -117,8 +117,11 @@ export async function POST(req: Request) {
     // Fetch the latest version for the rendering model
     const latestRenderVersion = await getLatestModelVersion("lucataco", "sdxl-controlnet")
 
+    
     // Use image directly if it's a URL, otherwise use the base64 image
     const imageInput = isUrl ? image : image
+
+    
 
     // Create multiple predictions based on numberOfOutputs
     const predictions = await Promise.all(
@@ -135,7 +138,7 @@ export async function POST(req: Request) {
               image: imageInput,
               prompt: style !== null ? `${style} style, ${prompt}`: prompt,
               negative_prompt: 'low quality, bad quality, hallucinations, distortions, layout changes, extra elements, unrealistic reflections, warping, floating objects, surreal details',
-              condition_scale: 0.9,
+              condition_scale: 1,
             },
           }),
         })
