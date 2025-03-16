@@ -30,7 +30,7 @@ async function upscaleImage(image: string, prompt: string) {
       version: latestVersion,
       input: {
         image: image,
-        prompt: prompt,
+        //prompt: prompt,
         resemblance: 1,
       },
     }),
@@ -137,7 +137,7 @@ export async function POST(req: Request) {
             input: {
               image: imageInput,
               prompt: `${!!style && style}${prompt}, photorealistic, ultra-detailed, high quality, 8K resolution`,
-              negative_prompt: 'low quality, bad quality, hallucinations, distortions, layout changes, unrealistic reflections, warping, floating objects',
+              negative_prompt: 'low quality, bad quality, hallucinations, distortions, warping',
               condition_scale: 1,
             },
           }),
