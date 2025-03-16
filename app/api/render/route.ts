@@ -136,7 +136,7 @@ export async function POST(req: Request) {
             version: latestRenderVersion,
             input: {
               image: imageInput,
-              prompt: `${!!style && style}${prompt}, `,
+              prompt: `${!!style && style}${prompt}, photorealistic, ultra-detailed, high quality, 8K resolution, realistic textures, sharp focus`,
               negative_prompt: 'low quality, bad quality, changed colors, hallucinations, distortions, layout changes, extra elements, unrealistic reflections, warping, floating objects, surreal details',
               condition_scale: 1,
             },
