@@ -134,7 +134,7 @@ export async function POST(req: Request) {
             input: {
               image: imageInput,
               prompt: style !== null ? `${style} style, ${prompt}`: prompt,
-              negative_prompt: 'hallucinations, distortions, layout changes, extra elements, unrealistic reflections, warping, floating objects, surreal details'
+              negative_prompt: 'low quality, bad quality, hallucinations, distortions, layout changes, extra elements, unrealistic reflections, warping, floating objects, surreal details'
             },
           }),
         })
