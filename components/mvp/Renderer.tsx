@@ -374,7 +374,7 @@ export default function Renderer() {
                     <li className="flex gap-2">
                       <span className="font-bold">2.</span>
                       <span>
-                        Enter a prompt describing your desired render{/*, or click "Generate with AI" for suggestions*/}
+                        Enter a prompt describing your desired render. Include scene composition, material properties, lighting conditions.{/*, or click "Generate with AI" for suggestions*/}
                       </span>
                     </li>
                     <li className="flex gap-2">
