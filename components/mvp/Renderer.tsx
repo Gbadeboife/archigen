@@ -264,7 +264,7 @@ export default function Renderer() {
                       name={style.title}
                       image={style.image}
                       isSelected={selectedStyle === style.title}
-                      onSelect={() => setSelectedStyle(style.title)}
+                      onSelect={() => setSelectedStyle(`${style.title} style, `)}
                     />
                   ))}
                 </div>
